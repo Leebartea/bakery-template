@@ -1,0 +1,410 @@
+/* ─── Tailwind directives ───────────────────────────────────────────────────── */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   CSS CUSTOM PROPERTIES — EDIT HERE to rebrand for any client in < 5 minutes
+   Change the 6 light vars + 6 dark vars below. Everything updates automatically.
+───────────────────────────────────────────────────────────────────────────── */
+:root {
+  /* Light Mode Palette */
+  --color-bg:           #FFF8F0; /* warm cream page background      */
+  --color-bg-alt:       #FEF3E2; /* alternate section background     */
+  --color-surface:      #FFFFFF; /* card / modal surface             */
+  --color-primary:      #C9A84C; /* brand gold — buttons, headings   */
+  --color-primary-hov:  #B8940E; /* primary button hover             */
+  --color-accent:       #E8A0B4; /* blush accent — badges, icons     */
+  --color-text:         #2C1810; /* primary body text                */
+  --color-text-muted:   #6B5344; /* muted / secondary text           */
+  --color-border:       #E8D5B7; /* card borders, dividers           */
+  --color-shadow:       rgba(44, 24, 16, 0.08);
+
+  /* Typography — EDIT HERE */
+  --font-heading: 'Playfair Display', Georgia, serif;
+  --font-body:    'Inter', system-ui, sans-serif;
+
+  /* Radius & Spacing */
+  --radius-card: 1rem;
+  --radius-btn:  0.5rem;
+}
+
+/* Dark Mode Palette — auto-applied when <html class="dark"> */
+.dark {
+  --color-bg:           #0F0602; /* near-black chocolate             */
+  --color-bg-alt:       #1E0D05; /* deep chocolate surface           */
+  --color-surface:      #271507; /* card surface (dark)              */
+  --color-primary:      #D4AF37; /* bright gold                      */
+  --color-primary-hov:  #E8C547;
+  --color-accent:       #C2688E; /* warm rose                        */
+  --color-text:         #F5E6D3; /* warm cream body text             */
+  --color-text-muted:   #C4A882;
+  --color-border:       #3D1F0D;
+  --color-shadow:       rgba(0, 0, 0, 0.4);
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   BASE STYLES
+───────────────────────────────────────────────────────────────────────────── */
+@layer base {
+  *, *::before, *::after { box-sizing: border-box; }
+
+  html {
+    scroll-behavior: smooth;
+    font-family: var(--font-body);
+  }
+
+  body {
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    transition: background-color 300ms ease, color 300ms ease;
+    line-height: 1.7;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    color: var(--color-text);
+    line-height: 1.25;
+  }
+
+  a { color: inherit; }
+  img { display: block; max-width: 100%; height: auto; }
+
+  /* Smooth theme transition on ALL elements (prevents color flash during toggle) */
+  * {
+    transition-property: background-color, border-color, color;
+    transition-duration: 300ms;
+    transition-timing-function: ease;
+  }
+
+  /* Remove transition on images (avoid fade on load) */
+  img, video, svg { transition: none; }
+
+  /* Focus ring — visible in both modes */
+  :focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   COMPONENT LAYER — Reusable utility classes
+───────────────────────────────────────────────────────────────────────────── */
+@layer components {
+
+  /* === Containers === */
+  .container-xl   { @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8; }
+  .container-lg   { @apply max-w-5xl mx-auto px-4 sm:px-6; }
+  .section-pad    { @apply py-16 md:py-24; }
+  .section-pad-sm { @apply py-10 md:py-16; }
+
+  /* === Buttons === */
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 font-semibold
+           rounded-lg px-6 py-3 text-sm transition-all duration-200
+           focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2;
+  }
+  .btn-primary {
+    @apply btn text-white;
+    background-color: var(--color-primary);
+    border: 2px solid var(--color-primary);
+  }
+  .btn-primary:hover {
+    background-color: var(--color-primary-hov);
+    border-color: var(--color-primary-hov);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px var(--color-shadow);
+  }
+  .btn-outline {
+    @apply btn;
+    color: var(--color-primary);
+    border: 2px solid var(--color-primary);
+    background-color: transparent;
+  }
+  .btn-outline:hover {
+    background-color: var(--color-primary);
+    color: #fff;
+    transform: translateY(-1px);
+  }
+  .btn-whatsapp {
+    @apply btn text-white;
+    background-color: #25D366;
+    border: 2px solid #25D366;
+  }
+  .btn-whatsapp:hover {
+    background-color: #1da851;
+    border-color: #1da851;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.3);
+  }
+
+  /* === Cards === */
+  .card {
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-card);
+    overflow: hidden;
+    box-shadow: 0 2px 12px var(--color-shadow);
+    transition: transform 250ms ease, box-shadow 250ms ease;
+  }
+  .card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px var(--color-shadow);
+  }
+
+  /* === Section headings === */
+  .section-label {
+    @apply text-xs font-bold uppercase tracking-widest mb-2;
+    color: var(--color-primary);
+  }
+  .section-title {
+    @apply text-3xl md:text-4xl font-bold mb-4;
+    font-family: var(--font-heading);
+    color: var(--color-text);
+  }
+  .section-subtitle {
+    @apply text-lg max-w-2xl;
+    color: var(--color-text-muted);
+  }
+
+  /* === Badges === */
+  .badge {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wide;
+  }
+  .badge-primary {
+    @apply badge;
+    background-color: var(--color-primary);
+    color: #fff;
+  }
+  .badge-accent {
+    @apply badge;
+    background-color: var(--color-accent);
+    color: var(--color-text);
+  }
+  .badge-surface {
+    @apply badge;
+    background-color: var(--color-bg-alt);
+    color: var(--color-text-muted);
+    border: 1px solid var(--color-border);
+  }
+
+  /* === Divider === */
+  .divider {
+    height: 1px;
+    background-color: var(--color-border);
+    @apply my-8;
+  }
+
+  /* === Navbar === */
+  .nav-link {
+    @apply relative text-sm font-medium transition-colors duration-200 pb-1;
+    color: var(--color-text-muted);
+  }
+  .nav-link::after {
+    content: '';
+    @apply absolute bottom-0 left-0 w-0 h-0.5 transition-all duration-300;
+    background-color: var(--color-primary);
+  }
+  .nav-link:hover, .nav-link.active {
+    color: var(--color-primary);
+  }
+  .nav-link:hover::after, .nav-link.active::after {
+    @apply w-full;
+  }
+
+  /* === Announcement Bar === */
+  .announcement-bar {
+    @apply text-xs md:text-sm text-center py-2.5 px-4 font-medium;
+    background-color: var(--color-primary);
+    color: #fff;
+  }
+  .dark .announcement-bar { background-color: #1E0D05; color: var(--color-primary); }
+
+  /* === WhatsApp Float === */
+  .whatsapp-float {
+    @apply fixed bottom-6 right-6 z-50 flex items-center gap-3
+           rounded-full shadow-xl transition-all duration-300;
+  }
+  .whatsapp-float:hover { transform: scale(1.08); }
+
+  /* === Hero === */
+  .hero-overlay {
+    background: linear-gradient(135deg,
+      rgba(255,248,240,0.95) 0%,
+      rgba(254,243,226,0.85) 50%,
+      rgba(201,168,76,0.1) 100%
+    );
+  }
+  .dark .hero-overlay {
+    background: linear-gradient(135deg,
+      rgba(15,6,2,0.96) 0%,
+      rgba(30,13,5,0.90) 50%,
+      rgba(212,175,55,0.08) 100%
+    );
+  }
+
+  /* === Product Card === */
+  .product-card {
+    @apply card cursor-pointer;
+  }
+  .product-card .product-img {
+    @apply w-full h-56 object-cover transition-transform duration-500;
+  }
+  .product-card:hover .product-img { transform: scale(1.04); }
+  .product-card .product-body { @apply p-5; }
+
+  /* === Gallery Grid === */
+  .gallery-item {
+    @apply relative overflow-hidden rounded-xl cursor-pointer;
+  }
+  .gallery-item img {
+    @apply w-full h-full object-cover transition-transform duration-500;
+  }
+  .gallery-item:hover img { transform: scale(1.06); }
+  .gallery-item .gallery-overlay {
+    @apply absolute inset-0 flex items-center justify-center opacity-0
+           transition-opacity duration-300;
+    background: rgba(0,0,0,0.5);
+  }
+  .gallery-item:hover .gallery-overlay { @apply opacity-100; }
+
+  /* === FAQ === */
+  .faq-item {
+    border-bottom: 1px solid var(--color-border);
+  }
+  .faq-question {
+    @apply w-full flex items-center justify-between py-5 text-left
+           font-semibold text-base md:text-lg transition-colors duration-200;
+    color: var(--color-text);
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  .faq-question:hover { color: var(--color-primary); }
+  .faq-answer {
+    @apply overflow-hidden transition-all duration-300 ease-in-out;
+    max-height: 0;
+    color: var(--color-text-muted);
+  }
+  .faq-answer.open { max-height: 500px; @apply pb-5; }
+  .faq-icon { @apply transition-transform duration-300 flex-shrink-0 ml-4; }
+  .faq-icon.open { transform: rotate(45deg); }
+
+  /* === Testimonial Card === */
+  .testimonial-card {
+    @apply card p-6 md:p-8;
+  }
+  .stars { color: var(--color-primary); }
+
+  /* === Form === */
+  .form-label {
+    @apply block text-sm font-semibold mb-1.5;
+    color: var(--color-text);
+  }
+  .form-input {
+    @apply w-full px-4 py-3 rounded-lg border text-sm transition-all duration-200;
+    background-color: var(--color-surface);
+    border-color: var(--color-border);
+    color: var(--color-text);
+  }
+  .form-input::placeholder { color: var(--color-text-muted); }
+  .form-input:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(201,168,76,0.15);
+  }
+  .form-error {
+    @apply text-xs mt-1 text-red-500 dark:text-red-400 hidden;
+  }
+  .form-error.visible { @apply block; }
+
+  /* === Theme Toggle === */
+  .theme-toggle {
+    @apply relative flex items-center justify-center w-10 h-10 rounded-full
+           border transition-all duration-200 cursor-pointer;
+    border-color: var(--color-border);
+    background-color: var(--color-surface);
+    color: var(--color-text-muted);
+  }
+  .theme-toggle:hover {
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+  }
+
+  /* === Process Step === */
+  .process-step {
+    @apply relative flex flex-col items-center text-center;
+  }
+  .process-number {
+    @apply w-14 h-14 rounded-full flex items-center justify-center
+           text-xl font-bold mb-4 font-heading;
+    background-color: var(--color-primary);
+    color: #fff;
+  }
+
+  /* === Image Hover Glow (food photography enhancement) === */
+  .food-glow {
+    filter: drop-shadow(0 8px 24px rgba(201, 168, 76, 0.2));
+    transition: filter 300ms ease;
+  }
+  .food-glow:hover {
+    filter: drop-shadow(0 12px 32px rgba(201, 168, 76, 0.35));
+  }
+  .dark .food-glow {
+    filter: drop-shadow(0 8px 24px rgba(212, 175, 55, 0.25));
+  }
+  .dark .food-glow:hover {
+    filter: drop-shadow(0 12px 32px rgba(212, 175, 55, 0.45));
+  }
+
+  /* === Scroll Reveal (subtle, class-based) === */
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 600ms ease, transform 600ms ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   UTILITY OVERRIDES
+───────────────────────────────────────────────────────────────────────────── */
+@layer utilities {
+  .font-heading { font-family: var(--font-heading); }
+
+  .text-primary    { color: var(--color-primary); }
+  .text-muted      { color: var(--color-text-muted); }
+  .bg-surface      { background-color: var(--color-surface); }
+  .bg-alt          { background-color: var(--color-bg-alt); }
+  .border-base     { border-color: var(--color-border); }
+
+  /* Gradient text for headings */
+  .text-gradient {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar { width: 8px; }
+  ::-webkit-scrollbar-track { background: var(--color-bg); }
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-border);
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb:hover { background: var(--color-primary); }
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   ANTI-FOUC GUARD
+   This block is the ONLY place where no transition is set.
+   theme.js inlines `no-transition` on <html> for 1 frame, then removes it.
+───────────────────────────────────────────────────────────────────────────── */
+.no-transition * {
+  transition: none !important;
+}

@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en" class="">
+<!--
+  Sweet Crumbs Bakery — Custom Cakes Page
+  EDIT HERE: Update flavours, options, and pricing info to match your client.
+-->
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Custom Cakes — Sweet Crumbs Bakery | Bespoke Birthday & Wedding Cakes</title>
+  <meta name="description" content="Order a fully custom cake for any occasion. Birthday, wedding, baby shower, corporate — designed and handcrafted just for you. WhatsApp us to start.">
+  <link rel="canonical" href="https://sweetcrumbs.ng/custom-cakes">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>tailwind.config = { darkMode: 'class', theme: { extend: { fontFamily: { heading: ["'Playfair Display'", 'Georgia', 'serif'], body: ["'Inter'", 'system-ui', 'sans-serif'] } } } }</script>
+  <style>
+    :root{--color-bg:#FFF8F0;--color-bg-alt:#FEF3E2;--color-surface:#FFFFFF;--color-primary:#C9A84C;--color-primary-hov:#B8940E;--color-accent:#E8A0B4;--color-text:#2C1810;--color-text-muted:#6B5344;--color-border:#E8D5B7;--color-shadow:rgba(44,24,16,0.08);--font-heading:'Playfair Display',Georgia,serif;--font-body:'Inter',system-ui,sans-serif;--radius-card:1rem}
+    .dark{--color-bg:#0F0602;--color-bg-alt:#1E0D05;--color-surface:#271507;--color-primary:#D4AF37;--color-primary-hov:#E8C547;--color-accent:#C2688E;--color-text:#F5E6D3;--color-text-muted:#C4A882;--color-border:#3D1F0D;--color-shadow:rgba(0,0,0,0.4)}
+    *,*::before,*::after{box-sizing:border-box}html{scroll-behavior:smooth;font-family:var(--font-body)}body{background-color:var(--color-bg);color:var(--color-text);transition:background-color 300ms ease,color 300ms ease}h1,h2,h3,h4,h5,h6{font-family:var(--font-heading)}*{transition-property:background-color,border-color,color;transition-duration:300ms;transition-timing-function:ease}img,video,svg{transition:none}:focus-visible{outline:2px solid var(--color-primary);outline-offset:3px;border-radius:4px}.no-transition *{transition:none!important}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;font-weight:600;border-radius:.5rem;padding:.75rem 1.5rem;font-size:.875rem;transition:all .2s;text-decoration:none}
+    .btn-primary{background-color:var(--color-primary);border:2px solid var(--color-primary);color:#fff}.btn-primary:hover{background-color:var(--color-primary-hov);transform:translateY(-1px);box-shadow:0 6px 20px var(--color-shadow)}
+    .btn-whatsapp{background-color:#25D366;border:2px solid #25D366;color:#fff}.btn-whatsapp:hover{background-color:#1da851;transform:translateY(-1px)}
+    .card{background-color:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-card);overflow:hidden;box-shadow:0 2px 12px var(--color-shadow)}
+    .nav-link{position:relative;font-size:.875rem;font-weight:500;transition:color .2s;padding-bottom:.25rem;color:var(--color-text-muted);text-decoration:none}.nav-link::after{content:'';position:absolute;bottom:0;left:0;width:0;height:2px;background:var(--color-primary);transition:width .3s}.nav-link:hover,.nav-link.active{color:var(--color-primary)}.nav-link:hover::after,.nav-link.active::after{width:100%}
+    .theme-toggle{display:flex;align-items:center;justify-content:center;width:2.5rem;height:2.5rem;border-radius:9999px;border:1px solid var(--color-border);background-color:var(--color-surface);color:var(--color-text-muted);cursor:pointer;transition:all .2s}.theme-toggle:hover{border-color:var(--color-primary);color:var(--color-primary)}
+    .section-label{font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;margin-bottom:.5rem;color:var(--color-primary)}
+    .section-title{font-size:clamp(1.75rem,4vw,2.5rem);font-weight:700;margin-bottom:1rem;color:var(--color-text);font-family:var(--font-heading)}
+    .section-subtitle{font-size:1.1rem;color:var(--color-text-muted);max-width:40rem}
+    .badge{display:inline-flex;align-items:center;padding:.25rem .75rem;border-radius:9999px;font-size:.7rem;font-weight:700;text-transform:uppercase}.badge-gold{background-color:var(--color-primary);color:#fff}
+    .whatsapp-float{position:fixed;bottom:1.5rem;right:1.5rem;z-index:50}
+    .whatsapp-float a{display:flex;align-items:center;gap:.5rem;background:#25D366;color:#fff;padding:.75rem 1.25rem;border-radius:9999px;font-weight:600;font-size:.875rem;box-shadow:0 8px 24px rgba(37,211,102,.35);text-decoration:none;transition:all .3s}.whatsapp-float a:hover{background:#1da851;transform:scale(1.05)}
+    .announcement-bar{background-color:var(--color-primary);color:#fff;text-align:center;padding:.625rem 1rem;font-size:.8rem;font-weight:500}.dark .announcement-bar{background-color:#1E0D05;color:var(--color-primary)}
+    .reveal{opacity:0;transform:translateY(24px);transition:opacity 600ms ease,transform 600ms ease}.reveal.visible{opacity:1;transform:translateY(0)}
+    /* Option pill */
+    .option-pill{display:inline-flex;padding:.375rem .875rem;border-radius:9999px;font-size:.8rem;font-weight:500;border:1.5px solid var(--color-border);background-color:var(--color-surface);color:var(--color-text-muted)}
+    /* FAQ */
+    .faq-answer{overflow:hidden;max-height:0;transition:max-height .35s ease;color:var(--color-text-muted)}.faq-answer.open{max-height:400px;padding-bottom:1.25rem}
+    .faq-icon{transition:transform .3s;flex-shrink:0;margin-left:1rem}.faq-icon.open{transform:rotate(45deg)}
+  </style>
+  <script src="js/theme.js"></script>
+</head>
+
+<body style="background-color:var(--color-bg);">
+  <div id="announcement-bar"></div>
+  <div id="navbar-placeholder"></div>
+
+  <main>
+
+    <!-- Hero -->
+    <section class="relative py-20 md:py-32 overflow-hidden">
+      <div class="absolute inset-0 z-0">
+        <img src="https://picsum.photos/seed/custom-hero/1600/800" alt="Stunning custom wedding cake" loading="lazy" class="w-full h-full object-cover">
+        <div class="absolute inset-0" style="background:linear-gradient(to right, var(--color-bg) 30%, rgba(255,248,240,0.7) 70%, transparent 100%);"></div>
+      </div>
+      <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-xl">
+          <span class="badge badge-gold reveal mb-4">Bespoke Cakes</span>
+          <h1 class="reveal text-4xl md:text-6xl font-bold mb-5" style="transition-delay:80ms;">
+            Your Vision.<br><span style="color:var(--color-primary);">Our Artistry.</span>
+          </h1>
+          <p class="reveal text-lg leading-relaxed mb-8" style="color:var(--color-text-muted); transition-delay:160ms;">
+            No two celebrations are the same. We design and craft fully custom cakes that reflect your unique story — from intimate birthdays to grand weddings.
+          </p>
+          <div class="reveal flex flex-col sm:flex-row gap-4" style="transition-delay:240ms;">
+            <a id="custom-hero-wa" href="#" class="btn btn-whatsapp text-base px-8 py-4">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+              Start My Custom Cake Order
+            </a>
+            <a href="#how-it-works" class="btn text-base px-8 py-4" style="border:2px solid var(--color-border); color:var(--color-text-muted);">
+              See How It Works ↓
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Occasions -->
+    <section class="py-16 md:py-20" style="background-color:var(--color-bg-alt);">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12 reveal">
+          <p class="section-label">Every Occasion</p>
+          <h2 class="section-title">We Bake for Every Milestone</h2>
+        </div>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-5">
+          <!-- EDIT HERE: Add/remove occasion cards -->
+          <div class="card p-6 text-center reveal hover:scale-105 transition-transform duration-300">
+            <div class="text-4xl mb-3">🎂</div>
+            <h3 class="font-bold text-base mb-1" style="color:var(--color-text);">Birthdays</h3>
+            <p class="text-xs" style="color:var(--color-text-muted);">From sweet 16 to milestone 50ths</p>
+          </div>
+          <div class="card p-6 text-center reveal hover:scale-105 transition-transform duration-300" style="transition-delay:80ms;">
+            <div class="text-4xl mb-3">💍</div>
+            <h3 class="font-bold text-base mb-1" style="color:var(--color-text);">Weddings</h3>
+            <p class="text-xs" style="color:var(--color-text-muted);">2 to 6-tier bespoke masterpieces</p>
+          </div>
+          <div class="card p-6 text-center reveal hover:scale-105 transition-transform duration-300" style="transition-delay:160ms;">
+            <div class="text-4xl mb-3">👶</div>
+            <h3 class="font-bold text-base mb-1" style="color:var(--color-text);">Baby Showers</h3>
+            <p class="text-xs" style="color:var(--color-text-muted);">Gender reveal, baby shower, naming</p>
+          </div>
+          <div class="card p-6 text-center reveal hover:scale-105 transition-transform duration-300" style="transition-delay:240ms;">
+            <div class="text-4xl mb-3">🏢</div>
+            <h3 class="font-bold text-base mb-1" style="color:var(--color-text);">Corporate</h3>
+            <p class="text-xs" style="color:var(--color-text-muted);">Branded cakes, employee events</p>
+          </div>
+          <div class="card p-6 text-center reveal hover:scale-105 transition-transform duration-300" style="transition-delay:0ms;">
+            <div class="text-4xl mb-3">💐</div>
+            <h3 class="font-bold text-base mb-1" style="color:var(--color-text);">Anniversaries</h3>
+            <p class="text-xs" style="color:var(--color-text-muted);">Romantic & memorable creations</p>
+          </div>
+          <div class="card p-6 text-center reveal hover:scale-105 transition-transform duration-300" style="transition-delay:80ms;">
+            <div class="text-4xl mb-3">🎓</div>
+            <h3 class="font-bold text-base mb-1" style="color:var(--color-text);">Graduations</h3>
+            <p class="text-xs" style="color:var(--color-text-muted);">Mark academic achievements in style</p>
+          </div>
+          <div class="card p-6 text-center reveal hover:scale-105 transition-transform duration-300" style="transition-delay:160ms;">
+            <div class="text-4xl mb-3">🎄</div>
+            <h3 class="font-bold text-base mb-1" style="color:var(--color-text);">Seasonal & Festive</h3>
+            <p class="text-xs" style="color:var(--color-text-muted);">Christmas, Eid, Easter specials</p>
+          </div>
+          <div class="card p-6 text-center reveal hover:scale-105 transition-transform duration-300" style="transition-delay:240ms;">
+            <div class="text-4xl mb-3">🎁</div>
+            <h3 class="font-bold text-base mb-1" style="color:var(--color-text);">Just Because</h3>
+            <p class="text-xs" style="color:var(--color-text-muted);">You don't need a reason for cake!</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Gallery of Custom Work -->
+    <section class="py-16 md:py-20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-10 reveal">
+          <p class="section-label">Our Portfolio</p>
+          <h2 class="section-title">Custom Cakes We've Created</h2>
+        </div>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div class="reveal aspect-square rounded-xl overflow-hidden">
+            <img src="https://picsum.photos/seed/custom-1/600/600" alt="Custom 3-tier white wedding cake" loading="lazy" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+          </div>
+          <div class="reveal aspect-square rounded-xl overflow-hidden" style="transition-delay:80ms;">
+            <img src="https://picsum.photos/seed/custom-2/600/600" alt="Unicorn birthday cake" loading="lazy" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+          </div>
+          <div class="reveal aspect-[1/2] md:aspect-square rounded-xl overflow-hidden row-span-2 md:row-span-1" style="transition-delay:160ms;">
+            <img src="https://picsum.photos/seed/custom-3/600/900" alt="Tall custom birthday cake" loading="lazy" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+          </div>
+          <div class="reveal aspect-square rounded-xl overflow-hidden" style="transition-delay:240ms;">
+            <img src="https://picsum.photos/seed/custom-4/600/600" alt="Gold leaf wedding cake" loading="lazy" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+          </div>
+          <div class="reveal aspect-square rounded-xl overflow-hidden" style="transition-delay:0ms;">
+            <img src="https://picsum.photos/seed/custom-5/600/600" alt="Floral custom cake" loading="lazy" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+          </div>
+          <div class="reveal aspect-square rounded-xl overflow-hidden" style="transition-delay:80ms;">
+            <img src="https://picsum.photos/seed/custom-6/600/600" alt="Number 30 birthday cake" loading="lazy" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+          </div>
+          <div class="reveal aspect-square rounded-xl overflow-hidden" style="transition-delay:240ms;">
+            <img src="https://picsum.photos/seed/custom-7/600/600" alt="Corporate branded cake" loading="lazy" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+          </div>
+        </div>
+        <div class="text-center mt-8">
+          <a href="gallery.html" class="btn btn-outline">See Full Gallery →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Cake Options / Builder -->
+    <!-- EDIT HERE: Update flavours, sizes, and finish options -->
+    <section class="py-16 md:py-20" style="background-color:var(--color-bg-alt);">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12 reveal">
+          <p class="section-label">Build Your Cake</p>
+          <h2 class="section-title">Customise Every Detail</h2>
+          <p class="section-subtitle mx-auto">Choose your flavour, size, and finish — then WhatsApp us to confirm.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <!-- Flavours -->
+          <div class="card p-6 reveal">
+            <div class="text-2xl mb-3">🍰</div>
+            <h3 class="font-bold text-base mb-4" style="color:var(--color-text);">Sponge Flavours</h3>
+            <div class="flex flex-wrap gap-2">
+              <span class="option-pill">Vanilla</span>
+              <span class="option-pill">Chocolate</span>
+              <span class="option-pill">Red Velvet</span>
+              <span class="option-pill">Lemon</span>
+              <span class="option-pill">Strawberry</span>
+              <span class="option-pill">Caramel</span>
+              <span class="option-pill">Coconut</span>
+              <span class="option-pill">Almond</span>
+            </div>
+          </div>
+          <!-- Fillings -->
+          <div class="card p-6 reveal" style="transition-delay:100ms;">
+            <div class="text-2xl mb-3">✨</div>
+            <h3 class="font-bold text-base mb-4" style="color:var(--color-text);">Fillings & Frosting</h3>
+            <div class="flex flex-wrap gap-2">
+              <span class="option-pill">Buttercream</span>
+              <span class="option-pill">Cream Cheese</span>
+              <span class="option-pill">Ganache</span>
+              <span class="option-pill">Whipped Cream</span>
+              <span class="option-pill">Jam</span>
+              <span class="option-pill">Salted Caramel</span>
+              <span class="option-pill">Fondant</span>
+              <span class="option-pill">Mousse</span>
+            </div>
+          </div>
+          <!-- Sizes -->
+          <div class="card p-6 reveal" style="transition-delay:200ms;">
+            <div class="text-2xl mb-3">📏</div>
+            <h3 class="font-bold text-base mb-4" style="color:var(--color-text);">Sizes & Serves</h3>
+            <div class="space-y-2 text-sm" style="color:var(--color-text-muted);">
+              <div class="flex justify-between py-1.5" style="border-bottom:1px solid var(--color-border);">
+                <span>6" round (1 tier)</span><span class="font-semibold" style="color:var(--color-primary);">Serves 8–10</span>
+              </div>
+              <div class="flex justify-between py-1.5" style="border-bottom:1px solid var(--color-border);">
+                <span>8" round (1 tier)</span><span class="font-semibold" style="color:var(--color-primary);">Serves 14–16</span>
+              </div>
+              <div class="flex justify-between py-1.5" style="border-bottom:1px solid var(--color-border);">
+                <span>2-tier cake</span><span class="font-semibold" style="color:var(--color-primary);">Serves 50–60</span>
+              </div>
+              <div class="flex justify-between py-1.5" style="border-bottom:1px solid var(--color-border);">
+                <span>3-tier cake</span><span class="font-semibold" style="color:var(--color-primary);">Serves 100–120</span>
+              </div>
+              <div class="flex justify-between py-1.5">
+                <span>4-tier+</span><span class="font-semibold" style="color:var(--color-primary);">On request</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CTA after options -->
+        <div class="mt-10 text-center reveal">
+          <p class="text-sm mb-4" style="color:var(--color-text-muted);">Ready to design your cake? Message us on WhatsApp and we'll guide you through every step.</p>
+          <a id="custom-options-wa" href="#" class="btn btn-whatsapp text-base px-10 py-4">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+            Chat on WhatsApp to Start
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- How It Works -->
+    <section id="how-it-works" class="py-16 md:py-24">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-14 reveal">
+          <p class="section-label">The Process</p>
+          <h2 class="section-title">How Your Custom Cake Comes to Life</h2>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 relative">
+          <div class="hidden lg:block absolute top-7 left-[12.5%] right-[12.5%] h-0.5" style="background-color:var(--color-border);"></div>
+          <div class="reveal flex flex-col items-center text-center">
+            <div class="relative z-10 w-14 h-14 rounded-full flex items-center justify-center text-xl font-bold mb-5" style="background-color:var(--color-primary);color:#fff;font-family:var(--font-heading);">1</div>
+            <h3 class="font-bold mb-2" style="color:var(--color-text);">Share Your Vision</h3>
+            <p class="text-sm" style="color:var(--color-text-muted);">WhatsApp us your idea, inspiration images, date, and number of guests.</p>
+          </div>
+          <div class="reveal flex flex-col items-center text-center" style="transition-delay:100ms;">
+            <div class="relative z-10 w-14 h-14 rounded-full flex items-center justify-center text-xl font-bold mb-5" style="background-color:var(--color-primary);color:#fff;font-family:var(--font-heading);">2</div>
+            <h3 class="font-bold mb-2" style="color:var(--color-text);">Design & Quote</h3>
+            <p class="text-sm" style="color:var(--color-text-muted);">We'll discuss flavours, design, and provide a full quote within 24 hours.</p>
+          </div>
+          <div class="reveal flex flex-col items-center text-center" style="transition-delay:200ms;">
+            <div class="relative z-10 w-14 h-14 rounded-full flex items-center justify-center text-xl font-bold mb-5" style="background-color:var(--color-primary);color:#fff;font-family:var(--font-heading);">3</div>
+            <h3 class="font-bold mb-2" style="color:var(--color-text);">Confirm & Deposit</h3>
+            <p class="text-sm" style="color:var(--color-text-muted);">Pay 50% deposit to lock in your order. We start creating your masterpiece.</p>
+          </div>
+          <div class="reveal flex flex-col items-center text-center" style="transition-delay:300ms;">
+            <div class="relative z-10 w-14 h-14 rounded-full flex items-center justify-center text-xl font-bold mb-5" style="background-color:var(--color-primary);color:#fff;font-family:var(--font-heading);">4</div>
+            <h3 class="font-bold mb-2" style="color:var(--color-text);">Wow Your Guests</h3>
+            <p class="text-sm" style="color:var(--color-text-muted);">Your cake arrives fresh, perfectly boxed, and ready to steal the show.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Wedding Section -->
+    <section class="py-16 md:py-20" style="background-color:var(--color-bg-alt);">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div class="order-2 lg:order-1">
+            <p class="section-label reveal">Special Service</p>
+            <h2 class="section-title reveal" style="transition-delay:80ms;">Your Perfect Wedding Cake</h2>
+            <p class="text-base leading-relaxed mb-6 reveal" style="color:var(--color-text-muted); transition-delay:160ms;">
+              Your wedding cake should be as extraordinary as your love story. We offer a full consultation service, taste testing sessions, and work closely with your wedding planner or florist to ensure your cake is perfectly integrated into your day.
+            </p>
+            <ul class="space-y-3 mb-8 reveal" style="color:var(--color-text-muted); transition-delay:240ms;">
+              <li class="flex items-start gap-3"><span style="color:var(--color-primary); flex-shrink:0;">✓</span> <span>2-tier to 6-tier cakes — any size</span></li>
+              <li class="flex items-start gap-3"><span style="color:var(--color-primary); flex-shrink:0;">✓</span> <span>Fondant, buttercream, or semi-naked finishes</span></li>
+              <li class="flex items-start gap-3"><span style="color:var(--color-primary); flex-shrink:0;">✓</span> <span>Sugar flowers, gold leaf, hand-painted details</span></li>
+              <li class="flex items-start gap-3"><span style="color:var(--color-primary); flex-shrink:0;">✓</span> <span>Colour matching to your wedding palette</span></li>
+              <li class="flex items-start gap-3"><span style="color:var(--color-primary); flex-shrink:0;">✓</span> <span>Delivery and setup at your venue</span></li>
+              <li class="flex items-start gap-3"><span style="color:var(--color-primary); flex-shrink:0;">✓</span> <span>Book 1–3 months in advance</span></li>
+            </ul>
+            <div class="reveal flex flex-wrap gap-3" style="transition-delay:320ms;">
+              <a id="wedding-wa" href="#" class="btn btn-whatsapp">
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+                Enquire About Wedding Cakes
+              </a>
+              <a href="products.html?filter=wedding" class="btn btn-outline">View Wedding Prices</a>
+            </div>
+          </div>
+          <div class="order-1 lg:order-2 reveal">
+            <img src="https://picsum.photos/seed/wedding-feature/800/700"
+              alt="Stunning 3-tier wedding cake with flowers and gold accents"
+              loading="lazy"
+              class="w-full rounded-2xl object-cover"
+              style="box-shadow:0 24px 64px var(--color-shadow);">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing Guidelines -->
+    <!-- EDIT HERE: Update starting prices -->
+    <section class="py-16 md:py-24">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12 reveal">
+          <p class="section-label">Pricing Guide</p>
+          <h2 class="section-title">Starting Prices</h2>
+          <p class="section-subtitle mx-auto">Prices vary based on design complexity, size, and delivery. WhatsApp us for an exact quote.</p>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+          <div class="card p-7 reveal text-center">
+            <div class="text-3xl mb-3">🎂</div>
+            <h3 class="font-bold text-lg mb-1" style="font-family:var(--font-heading); color:var(--color-text);">Birthday Cakes</h3>
+            <p class="text-3xl font-bold my-3" style="color:var(--color-primary);">₦14,000</p>
+            <p class="text-xs" style="color:var(--color-text-muted);">Starting price — 6" single tier, basic design. Complex designs & larger cakes priced on request.</p>
+          </div>
+          <div class="card p-7 reveal text-center border-2" style="border-color:var(--color-primary); transition-delay:120ms;">
+            <div class="text-3xl mb-3">💍</div>
+            <h3 class="font-bold text-lg mb-1" style="font-family:var(--font-heading); color:var(--color-text);">Wedding Cakes</h3>
+            <p class="text-3xl font-bold my-3" style="color:var(--color-primary);">₦45,000</p>
+            <p class="text-xs" style="color:var(--color-text-muted);">Starting price — 2-tier cake, serves 50+. Full custom 3–6 tier quoted individually.</p>
+          </div>
+          <div class="card p-7 reveal text-center sm:col-span-2 md:col-span-1" style="transition-delay:240ms;">
+            <div class="text-3xl mb-3">🏢</div>
+            <h3 class="font-bold text-lg mb-1" style="font-family:var(--font-heading); color:var(--color-text);">Corporate Cakes</h3>
+            <p class="text-3xl font-bold my-3" style="color:var(--color-primary);">₦20,000</p>
+            <p class="text-xs" style="color:var(--color-text-muted);">Starting price — branded single-tier. Bulk orders and branded box sets available.</p>
+          </div>
+        </div>
+        <div class="text-center mt-10 reveal">
+          <a id="pricing-wa" href="#" class="btn btn-primary text-base px-10 py-4">Get an Exact Quote on WhatsApp</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <div id="footer-placeholder"></div>
+  <div id="whatsapp-float-placeholder" class="whatsapp-float"></div>
+
+  <script src="data/products.js"></script>
+  <script src="data/testimonials.js"></script>
+  <script src="data/faq.js"></script>
+  <script src="js/config.js"></script>
+  <script src="js/components.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const waCustomMsg = "Hello! I'd like to order a custom cake 🎂. Can we discuss the design, size, and date?";
+      const waIds = {
+        "custom-hero-wa": waCustomMsg,
+        "custom-options-wa": waCustomMsg,
+        "wedding-wa": "Hello! I'm interested in a wedding cake consultation 💍. Could you share more details?",
+        "pricing-wa": waCustomMsg,
+      };
+      Object.entries(waIds).forEach(([id, msg]) => {
+        const el = document.getElementById(id); if (el) el.href = getWhatsAppLink(msg);
+      });
+    });
+  </script>
+</body>
+</html>

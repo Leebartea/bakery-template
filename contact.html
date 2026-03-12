@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en" class="">
+<!--
+  Sweet Crumbs Bakery — Contact / Order Page
+  EDIT HERE: Update contact details in js/config.js — they auto-populate here.
+             The order form sends directly to WhatsApp. No backend needed.
+-->
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact & Order — Sweet Crumbs Bakery | Lagos Nigeria</title>
+  <meta name="description" content="Order your cake or snacks from Sweet Crumbs Bakery. Fill in our order form or message us on WhatsApp. Fast responses guaranteed.">
+  <link rel="canonical" href="https://sweetcrumbs.ng/contact">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>tailwind.config = { darkMode: 'class', theme: { extend: { fontFamily: { heading: ["'Playfair Display'", 'Georgia', 'serif'], body: ["'Inter'", 'system-ui', 'sans-serif'] } } } }</script>
+  <style>
+    :root{--color-bg:#FFF8F0;--color-bg-alt:#FEF3E2;--color-surface:#FFFFFF;--color-primary:#C9A84C;--color-primary-hov:#B8940E;--color-accent:#E8A0B4;--color-text:#2C1810;--color-text-muted:#6B5344;--color-border:#E8D5B7;--color-shadow:rgba(44,24,16,0.08);--font-heading:'Playfair Display',Georgia,serif;--font-body:'Inter',system-ui,sans-serif;--radius-card:1rem}
+    .dark{--color-bg:#0F0602;--color-bg-alt:#1E0D05;--color-surface:#271507;--color-primary:#D4AF37;--color-primary-hov:#E8C547;--color-accent:#C2688E;--color-text:#F5E6D3;--color-text-muted:#C4A882;--color-border:#3D1F0D;--color-shadow:rgba(0,0,0,0.4)}
+    *,*::before,*::after{box-sizing:border-box}html{scroll-behavior:smooth;font-family:var(--font-body)}body{background-color:var(--color-bg);color:var(--color-text);transition:background-color 300ms ease,color 300ms ease}h1,h2,h3,h4,h5,h6{font-family:var(--font-heading)}*{transition-property:background-color,border-color,color;transition-duration:300ms;transition-timing-function:ease}img,video,svg{transition:none}:focus-visible{outline:2px solid var(--color-primary);outline-offset:3px;border-radius:4px}.no-transition *{transition:none!important}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;font-weight:600;border-radius:.5rem;padding:.75rem 1.5rem;font-size:.875rem;transition:all .2s;text-decoration:none}
+    .btn-primary{background-color:var(--color-primary);border:2px solid var(--color-primary);color:#fff}.btn-primary:hover{background-color:var(--color-primary-hov);transform:translateY(-1px);box-shadow:0 6px 20px var(--color-shadow)}
+    .btn-whatsapp{background-color:#25D366;border:2px solid #25D366;color:#fff}.btn-whatsapp:hover{background-color:#1da851;transform:translateY(-1px)}
+    .card{background-color:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-card);overflow:hidden;box-shadow:0 2px 12px var(--color-shadow)}
+    .nav-link{position:relative;font-size:.875rem;font-weight:500;transition:color .2s;padding-bottom:.25rem;color:var(--color-text-muted);text-decoration:none}.nav-link::after{content:'';position:absolute;bottom:0;left:0;width:0;height:2px;background:var(--color-primary);transition:width .3s}.nav-link:hover,.nav-link.active{color:var(--color-primary)}.nav-link:hover::after,.nav-link.active::after{width:100%}
+    .theme-toggle{display:flex;align-items:center;justify-content:center;width:2.5rem;height:2.5rem;border-radius:9999px;border:1px solid var(--color-border);background-color:var(--color-surface);color:var(--color-text-muted);cursor:pointer;transition:all .2s}.theme-toggle:hover{border-color:var(--color-primary);color:var(--color-primary)}
+    .section-label{font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;margin-bottom:.5rem;color:var(--color-primary)}
+    .section-title{font-size:clamp(1.75rem,4vw,2.5rem);font-weight:700;margin-bottom:1rem;color:var(--color-text);font-family:var(--font-heading)}
+    .whatsapp-float{position:fixed;bottom:1.5rem;right:1.5rem;z-index:50}
+    .whatsapp-float a{display:flex;align-items:center;gap:.5rem;background:#25D366;color:#fff;padding:.75rem 1.25rem;border-radius:9999px;font-weight:600;font-size:.875rem;box-shadow:0 8px 24px rgba(37,211,102,.35);text-decoration:none;transition:all .3s}.whatsapp-float a:hover{background:#1da851;transform:scale(1.05)}
+    .announcement-bar{background-color:var(--color-primary);color:#fff;text-align:center;padding:.625rem 1rem;font-size:.8rem;font-weight:500}.dark .announcement-bar{background-color:#1E0D05;color:var(--color-primary)}
+    .reveal{opacity:0;transform:translateY(24px);transition:opacity 600ms ease,transform 600ms ease}.reveal.visible{opacity:1;transform:translateY(0)}
+    /* Form */
+    .form-label{display:block;font-size:.875rem;font-weight:600;margin-bottom:.375rem;color:var(--color-text)}
+    .form-input{width:100%;padding:.75rem 1rem;border-radius:.5rem;border:1.5px solid var(--color-border);background-color:var(--color-surface);color:var(--color-text);font-size:.875rem;transition:all .2s;font-family:var(--font-body)}
+    .form-input:focus{outline:none;border-color:var(--color-primary);box-shadow:0 0 0 3px rgba(201,168,76,.15)}
+    .form-input::placeholder{color:var(--color-text-muted)}
+    .form-input.border-red-500{border-color:#ef4444;box-shadow:0 0 0 3px rgba(239,68,68,.1)}
+    .form-input.border-green-500{border-color:#22c55e}
+    .form-error{font-size:.72rem;margin-top:.3rem;color:#ef4444;display:none}.form-error.visible{display:block}
+    select.form-input{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%236B5344'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 1rem center;background-size:1rem;padding-right:2.5rem}
+    .form-section-title{font-size:1rem;font-weight:700;margin-bottom:1rem;padding-bottom:.75rem;font-family:var(--font-heading);color:var(--color-text);border-bottom:1px solid var(--color-border)}
+    /* Contact info cards */
+    .contact-card{display:flex;align-items:flex-start;gap:1rem;padding:1.25rem;border-radius:.75rem;background-color:var(--color-surface);border:1px solid var(--color-border)}
+    .contact-icon{width:2.75rem;height:2.75rem;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.125rem;flex-shrink:0;background-color:var(--color-bg-alt)}
+  </style>
+  <script src="js/theme.js"></script>
+</head>
+
+<body style="background-color:var(--color-bg);">
+  <div id="announcement-bar"></div>
+  <div id="navbar-placeholder"></div>
+
+  <main>
+
+    <!-- Page Header -->
+    <section class="py-14 md:py-20" style="background-color:var(--color-bg-alt);">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <p class="section-label reveal">Get in Touch</p>
+        <h1 class="reveal text-4xl md:text-5xl font-bold mb-4" style="transition-delay:80ms;">
+          Order Your <span style="color:var(--color-primary);">Perfect Bake</span>
+        </h1>
+        <p class="reveal text-lg max-w-2xl mx-auto" style="color:var(--color-text-muted); transition-delay:160ms;">
+          Fill in the order form below or message us directly on WhatsApp — we'll confirm your order within the hour.
+        </p>
+        <!-- Quick WhatsApp CTA -->
+        <div class="reveal mt-6" style="transition-delay:240ms;">
+          <a id="contact-quick-wa" href="#" class="btn btn-whatsapp text-base px-8 py-3">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+            Message Us Directly on WhatsApp
+          </a>
+          <p class="text-xs mt-2" style="color:var(--color-text-muted);">Average response time: under 30 minutes</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Main Content: Form + Info -->
+    <section class="py-12 md:py-20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-10">
+
+          <!-- ── Order Form (2 cols) ────────────────────────────────────── -->
+          <div class="lg:col-span-2 reveal">
+            <div class="card p-7 md:p-10">
+              <h2 class="section-title" style="margin-bottom:1.5rem;">Place Your Order</h2>
+              <p class="text-sm mb-8" style="color:var(--color-text-muted);">
+                Fill in the form below. On submission, you'll be redirected to WhatsApp to confirm your order with our team.
+                Fields marked * are required.
+              </p>
+
+              <form id="order-form" novalidate>
+
+                <!-- Personal Info -->
+                <h3 class="form-section-title">Your Details</h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-6">
+                  <div>
+                    <label class="form-label" for="name">Full Name *</label>
+                    <input type="text" id="name" name="name" class="form-input"
+                      placeholder="e.g. Adaeze Okonkwo"
+                      autocomplete="name"
+                      required
+                      data-required
+                      data-error-empty="Please enter your full name.">
+                    <p class="form-error" id="name-error" role="alert"></p>
+                  </div>
+                  <div>
+                    <label class="form-label" for="phone">Phone / WhatsApp *</label>
+                    <input type="tel" id="phone" name="phone" class="form-input"
+                      placeholder="+234 801 234 5678"
+                      autocomplete="tel"
+                      required
+                      data-required
+                      data-validate="phone"
+                      data-error-empty="Please enter your phone number.">
+                    <p class="form-error" id="phone-error" role="alert"></p>
+                  </div>
+                  <div class="sm:col-span-2">
+                    <label class="form-label" for="email">Email Address (optional)</label>
+                    <input type="email" id="email" name="email" class="form-input"
+                      placeholder="you@example.com"
+                      autocomplete="email"
+                      data-validate="email">
+                    <p class="form-error" id="email-error" role="alert"></p>
+                  </div>
+                </div>
+
+                <!-- Order Details -->
+                <h3 class="form-section-title">Order Details</h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-6">
+                  <div class="sm:col-span-2">
+                    <label class="form-label" for="product">What would you like to order? *</label>
+                    <select id="product" name="product" class="form-input"
+                      required
+                      data-required
+                      data-error-empty="Please select a product.">
+                      <option value="">— Select a product or type below —</option>
+                      <optgroup label="🍰 Cakes">
+                        <option>Classic Victoria Sponge — ₦15,000</option>
+                        <option>Dark Chocolate Fudge Cake — ₦18,000</option>
+                        <option>Red Velvet Dream — ₦16,000</option>
+                        <option>Lemon Sunshine Drizzle — ₦14,000</option>
+                        <option>Strawberry & Cream Gateau — ₦20,000</option>
+                        <option>Caramel Salted Butter Cake — ₦17,000</option>
+                        <option>Custom Cake (discuss on WhatsApp)</option>
+                      </optgroup>
+                      <optgroup label="🍪 Snacks & Pastries">
+                        <option>Assorted Chin Chin (500g) — ₦3,500</option>
+                        <option>Butter Shortbread Cookies Tin — ₦5,000</option>
+                        <option>Fudgy Chocolate Brownies (6 pcs) — ₦4,500</option>
+                        <option>Puff Puff (Pack of 12) — ₦2,500</option>
+                        <option>Savoury Meat Pies (Pack of 6) — ₦4,000</option>
+                        <option>Premium Dessert Box — ₦8,000</option>
+                      </optgroup>
+                      <optgroup label="💍 Wedding & Events">
+                        <option>2-Tier Wedding Cake — from ₦45,000</option>
+                        <option>3-Tier Wedding Cake — from ₦85,000</option>
+                        <option>Corporate/Event Cake (custom quote)</option>
+                      </optgroup>
+                    </select>
+                    <p class="form-error" id="product-error" role="alert"></p>
+                  </div>
+                  <div>
+                    <label class="form-label" for="quantity">Quantity</label>
+                    <input type="number" id="quantity" name="quantity" class="form-input"
+                      placeholder="1" min="1" max="100" value="1">
+                  </div>
+                  <div>
+                    <label class="form-label" for="occasion">Occasion</label>
+                    <select id="occasion" name="occasion" class="form-input">
+                      <option value="">— Select occasion —</option>
+                      <option>Birthday</option>
+                      <option>Wedding</option>
+                      <option>Anniversary</option>
+                      <option>Baby Shower</option>
+                      <option>Graduation</option>
+                      <option>Corporate Event</option>
+                      <option>Gift / No Occasion</option>
+                      <option>Other</option>
+                    </select>
+                  </div>
+                  <div class="sm:col-span-2">
+                    <label class="form-label" for="delivery-date">Preferred Delivery / Collection Date *</label>
+                    <input type="date" id="delivery-date" name="delivery-date" class="form-input"
+                      required
+                      data-required
+                      data-error-empty="Please select a date.">
+                    <p class="form-error" id="delivery-date-error" role="alert"></p>
+                    <p class="text-xs mt-1" style="color:var(--color-text-muted);">Minimum 48–72 hours notice required. Wedding cakes: 1–3 months.</p>
+                  </div>
+                  <div class="sm:col-span-2">
+                    <label class="form-label" for="notes">Design Notes / Special Requests</label>
+                    <textarea id="notes" name="notes" class="form-input" rows="4"
+                      placeholder="e.g. 'Red velvet, cream cheese frosting, roses on top, serves 20, for a 30th birthday — name on cake: Adaeze'. Share any design details here."
+                      data-validate="minlength"
+                      data-minlength="0"></textarea>
+                    <p class="form-error" id="notes-error" role="alert"></p>
+                  </div>
+                </div>
+
+                <!-- Delivery Info -->
+                <h3 class="form-section-title">Delivery or Collection</h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-8">
+                  <div class="sm:col-span-2">
+                    <fieldset>
+                      <legend class="form-label">Delivery Method *</legend>
+                      <div class="flex gap-6 mt-2">
+                        <label class="flex items-center gap-2 cursor-pointer text-sm" style="color:var(--color-text);">
+                          <input type="radio" name="delivery-method" value="delivery" checked
+                            class="w-4 h-4 accent-[var(--color-primary)]">
+                          🚚 Delivery to my address
+                        </label>
+                        <label class="flex items-center gap-2 cursor-pointer text-sm" style="color:var(--color-text);">
+                          <input type="radio" name="delivery-method" value="collection"
+                            class="w-4 h-4 accent-[var(--color-primary)]">
+                          🏪 I'll collect in person
+                        </label>
+                      </div>
+                    </fieldset>
+                  </div>
+                  <div id="delivery-address-wrapper" class="sm:col-span-2">
+                    <label class="form-label" for="delivery-address">Delivery Address</label>
+                    <input type="text" id="delivery-address" name="delivery-address" class="form-input"
+                      placeholder="Street, area, city — e.g. 14 Adeola Odeku, Victoria Island, Lagos">
+                    <p class="text-xs mt-1" style="color:var(--color-text-muted);">Delivery fee will be confirmed on WhatsApp based on your location.</p>
+                  </div>
+                </div>
+
+                <!-- Submit -->
+                <div class="flex flex-col sm:flex-row gap-4">
+                  <button type="submit"
+                    class="btn btn-whatsapp text-base px-8 py-4 flex-1 justify-center">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+                    Send Order via WhatsApp
+                  </button>
+                  <a id="order-direct-wa" href="#" target="_blank" rel="noopener noreferrer"
+                    class="btn text-sm px-6 py-4 text-center" style="border:2px solid var(--color-border); color:var(--color-text-muted);">
+                    Or chat directly →
+                  </a>
+                </div>
+                <p class="text-xs mt-4" style="color:var(--color-text-muted);">
+                  On clicking "Send Order", you'll be taken to WhatsApp with your order details pre-filled. No data is sent to our servers.
+                </p>
+
+              </form>
+            </div>
+          </div>
+
+          <!-- ── Contact Info Sidebar (1 col) ──────────────────────────── -->
+          <div class="space-y-5 reveal" style="transition-delay:200ms;">
+
+            <!-- WhatsApp (primary) -->
+            <div class="rounded-xl p-6 text-white" style="background:linear-gradient(135deg, #25D366 0%, #128C7E 100%);">
+              <div class="flex items-center gap-3 mb-4">
+                <svg class="w-8 h-8 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+                <div>
+                  <p class="font-bold text-lg" style="font-family:var(--font-heading);">WhatsApp (Fastest)</p>
+                  <p class="text-sm opacity-80">Avg. reply: &lt; 30 mins</p>
+                </div>
+              </div>
+              <a id="sidebar-wa" href="#"
+                class="block w-full text-center py-3 rounded-xl font-bold text-sm bg-white/20 hover:bg-white/30 transition-colors">
+                Open WhatsApp Chat →
+              </a>
+            </div>
+
+            <!-- Contact details -->
+            <div class="card p-6 space-y-4">
+              <h3 class="font-bold text-base mb-4" style="font-family:var(--font-heading); color:var(--color-text);">Contact Information</h3>
+
+              <div class="contact-card">
+                <div class="contact-icon">📞</div>
+                <div>
+                  <p class="text-xs font-semibold mb-1" style="color:var(--color-text-muted);">Phone</p>
+                  <a id="contact-phone" href="#" class="font-semibold text-sm hover:underline" style="color:var(--color-primary);"></a>
+                </div>
+              </div>
+
+              <div class="contact-card">
+                <div class="contact-icon">✉️</div>
+                <div>
+                  <p class="text-xs font-semibold mb-1" style="color:var(--color-text-muted);">Email</p>
+                  <a id="contact-email" href="#" class="font-semibold text-sm hover:underline" style="color:var(--color-primary);"></a>
+                </div>
+              </div>
+
+              <div class="contact-card">
+                <div class="contact-icon">📍</div>
+                <div>
+                  <p class="text-xs font-semibold mb-1" style="color:var(--color-text-muted);">Address</p>
+                  <a id="contact-address-link" href="#" target="_blank" rel="noopener noreferrer"
+                    class="font-medium text-sm leading-relaxed hover:underline" style="color:var(--color-text);"></a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Hours -->
+            <div class="card p-6">
+              <h3 class="font-bold text-base mb-4" style="font-family:var(--font-heading); color:var(--color-text);">Business Hours</h3>
+              <div class="space-y-2 text-sm" style="color:var(--color-text-muted);">
+                <div class="flex items-start gap-2">
+                  <span>🗓️</span>
+                  <span id="hours-weekdays"></span>
+                </div>
+                <div class="flex items-start gap-2">
+                  <span>🗓️</span>
+                  <span id="hours-saturday"></span>
+                </div>
+                <div class="flex items-start gap-2">
+                  <span>🗓️</span>
+                  <span id="hours-sunday"></span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Quick links -->
+            <div class="card p-6">
+              <h3 class="font-bold text-base mb-4" style="font-family:var(--font-heading); color:var(--color-text);">Quick Links</h3>
+              <div class="flex flex-col gap-2">
+                <a href="products.html" class="text-sm font-medium flex items-center gap-2 hover:underline" style="color:var(--color-primary);">🎂 Browse Full Menu</a>
+                <a href="custom-cakes.html" class="text-sm font-medium flex items-center gap-2 hover:underline" style="color:var(--color-primary);">✨ Custom Cakes</a>
+                <a href="gallery.html" class="text-sm font-medium flex items-center gap-2 hover:underline" style="color:var(--color-primary);">📸 View Gallery</a>
+              </div>
+            </div>
+
+          </div><!-- /sidebar -->
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Short List -->
+    <section class="py-12 md:py-16" style="background-color:var(--color-bg-alt);">
+      <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-10 reveal">
+          <p class="section-label">Before You Order</p>
+          <h2 class="section-title">Common Questions</h2>
+        </div>
+        <!-- FAQ items (ordering category only) -->
+        <div id="faq-container" class="reveal" data-faq-filter="ordering"></div>
+        <div class="text-center mt-8 reveal">
+          <a href="#" class="text-sm font-medium hover:underline" style="color:var(--color-primary);">See all FAQs on our main page →</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <div id="footer-placeholder"></div>
+  <div id="whatsapp-float-placeholder" class="whatsapp-float"></div>
+
+  <script src="data/products.js"></script>
+  <script src="data/testimonials.js"></script>
+  <script src="data/faq.js"></script>
+  <script src="js/config.js"></script>
+  <script src="js/components.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/faq.js"></script>
+  <script src="js/form-validation.js"></script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      // Populate contact info from config
+      const phone = SITE_CONFIG.phone;
+      const email = SITE_CONFIG.email;
+      const address = SITE_CONFIG.address;
+      const mapUrl = SITE_CONFIG.mapUrl;
+      const hours = SITE_CONFIG.hours;
+
+      const phoneEl = document.getElementById("contact-phone");
+      if (phoneEl) { phoneEl.textContent = phone; phoneEl.href = "tel:" + phone.replace(/\s/g, ""); }
+
+      const emailEl = document.getElementById("contact-email");
+      if (emailEl) { emailEl.textContent = email; emailEl.href = "mailto:" + email; }
+
+      const addrEl = document.getElementById("contact-address-link");
+      if (addrEl) { addrEl.textContent = address; addrEl.href = mapUrl || "https://maps.google.com/?q=" + encodeURIComponent(address); }
+
+      const hwEl = document.getElementById("hours-weekdays");
+      const hsEl = document.getElementById("hours-saturday");
+      const hsuEl = document.getElementById("hours-sunday");
+      if (hwEl) hwEl.textContent = hours.weekdays;
+      if (hsEl) hsEl.textContent = hours.saturday;
+      if (hsuEl) hsuEl.textContent = hours.sunday;
+
+      // WhatsApp links
+      const waIds = ["contact-quick-wa", "sidebar-wa", "order-direct-wa"];
+      waIds.forEach(id => { const el = document.getElementById(id); if (el) el.href = getWhatsAppLink(); });
+
+      // Min date for delivery (today + 2 days)
+      const dateInput = document.getElementById("delivery-date");
+      if (dateInput) {
+        const min = new Date();
+        min.setDate(min.getDate() + 2);
+        dateInput.min = min.toISOString().split("T")[0];
+      }
+
+      // Show/hide delivery address based on method
+      const radios = document.querySelectorAll('input[name="delivery-method"]');
+      const addrWrapper = document.getElementById("delivery-address-wrapper");
+      radios.forEach(r => {
+        r.addEventListener("change", function () {
+          if (addrWrapper) addrWrapper.style.display = this.value === "delivery" ? "" : "none";
+        });
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en" class="">
+<!--
+  Sweet Crumbs Bakery — Products Page
+  Products are data-driven from data/products.js
+  EDIT HERE: Add/edit products in data/products.js only — this page auto-updates.
+-->
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Cakes & Snacks — Sweet Crumbs Bakery | Full Menu</title>
+  <meta name="description" content="Browse our full menu of handcrafted cakes, artisan snacks, and premium gift boxes. Order via WhatsApp. Lagos, Nigeria.">
+  <link rel="canonical" href="https://sweetcrumbs.ng/products">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>tailwind.config = { darkMode: 'class', theme: { extend: { fontFamily: { heading: ["'Playfair Display'", 'Georgia', 'serif'], body: ["'Inter'", 'system-ui', 'sans-serif'] } } } }</script>
+  <style>
+    :root{--color-bg:#FFF8F0;--color-bg-alt:#FEF3E2;--color-surface:#FFFFFF;--color-primary:#C9A84C;--color-primary-hov:#B8940E;--color-accent:#E8A0B4;--color-text:#2C1810;--color-text-muted:#6B5344;--color-border:#E8D5B7;--color-shadow:rgba(44,24,16,0.08);--font-heading:'Playfair Display',Georgia,serif;--font-body:'Inter',system-ui,sans-serif;--radius-card:1rem}
+    .dark{--color-bg:#0F0602;--color-bg-alt:#1E0D05;--color-surface:#271507;--color-primary:#D4AF37;--color-primary-hov:#E8C547;--color-accent:#C2688E;--color-text:#F5E6D3;--color-text-muted:#C4A882;--color-border:#3D1F0D;--color-shadow:rgba(0,0,0,0.4)}
+    *,*::before,*::after{box-sizing:border-box}html{scroll-behavior:smooth;font-family:var(--font-body)}body{background-color:var(--color-bg);color:var(--color-text);transition:background-color 300ms ease,color 300ms ease}h1,h2,h3,h4,h5,h6{font-family:var(--font-heading)}*{transition-property:background-color,border-color,color;transition-duration:300ms;transition-timing-function:ease}img,video,svg{transition:none}:focus-visible{outline:2px solid var(--color-primary);outline-offset:3px;border-radius:4px}.no-transition *{transition:none!important}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;font-weight:600;border-radius:.5rem;padding:.75rem 1.5rem;font-size:.875rem;transition:all .2s;text-decoration:none}
+    .btn-primary{background-color:var(--color-primary);border:2px solid var(--color-primary);color:#fff}.btn-primary:hover{background-color:var(--color-primary-hov);transform:translateY(-1px);box-shadow:0 6px 20px var(--color-shadow)}
+    .btn-whatsapp{background-color:#25D366;border:2px solid #25D366;color:#fff}.btn-whatsapp:hover{background-color:#1da851;transform:translateY(-1px)}
+    .card{background-color:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-card);overflow:hidden;box-shadow:0 2px 12px var(--color-shadow);transition:transform 250ms ease,box-shadow 250ms ease}.card:hover{transform:translateY(-4px);box-shadow:0 12px 32px var(--color-shadow)}
+    .nav-link{position:relative;font-size:.875rem;font-weight:500;transition:color .2s;padding-bottom:.25rem;color:var(--color-text-muted);text-decoration:none}.nav-link::after{content:'';position:absolute;bottom:0;left:0;width:0;height:2px;background:var(--color-primary);transition:width .3s}.nav-link:hover,.nav-link.active{color:var(--color-primary)}.nav-link:hover::after,.nav-link.active::after{width:100%}
+    .theme-toggle{display:flex;align-items:center;justify-content:center;width:2.5rem;height:2.5rem;border-radius:9999px;border:1px solid var(--color-border);background-color:var(--color-surface);color:var(--color-text-muted);cursor:pointer;transition:all .2s}.theme-toggle:hover{border-color:var(--color-primary);color:var(--color-primary)}
+    .section-label{font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;margin-bottom:.5rem;color:var(--color-primary)}
+    .section-title{font-size:clamp(1.75rem,4vw,2.5rem);font-weight:700;margin-bottom:1rem;color:var(--color-text);font-family:var(--font-heading)}
+    .badge{display:inline-flex;align-items:center;padding:.25rem .75rem;border-radius:9999px;font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em}.badge-gold{background-color:var(--color-primary);color:#fff}.badge-surface{background-color:var(--color-bg-alt);color:var(--color-text-muted);border:1px solid var(--color-border)}
+    .whatsapp-float{position:fixed;bottom:1.5rem;right:1.5rem;z-index:50}
+    .whatsapp-float a{display:flex;align-items:center;gap:.5rem;background:#25D366;color:#fff;padding:.75rem 1.25rem;border-radius:9999px;font-weight:600;font-size:.875rem;box-shadow:0 8px 24px rgba(37,211,102,.35);text-decoration:none;transition:all .3s}.whatsapp-float a:hover{background:#1da851;transform:scale(1.05)}
+    .announcement-bar{background-color:var(--color-primary);color:#fff;text-align:center;padding:.625rem 1rem;font-size:.8rem;font-weight:500}.dark .announcement-bar{background-color:#1E0D05;color:var(--color-primary)}
+    .reveal{opacity:0;transform:translateY(24px);transition:opacity 600ms ease,transform 600ms ease}.reveal.visible{opacity:1;transform:translateY(0)}
+    /* Filter button active state */
+    .filter-btn{display:inline-flex;align-items:center;gap:.4rem;padding:.5rem 1.25rem;border-radius:9999px;font-size:.8rem;font-weight:600;cursor:pointer;border:2px solid var(--color-border);background-color:var(--color-surface);color:var(--color-text-muted);transition:all .2s}.filter-btn:hover{border-color:var(--color-primary);color:var(--color-primary)}.filter-btn.active{background-color:var(--color-primary);border-color:var(--color-primary);color:#fff}
+    /* Allergen tags */
+    .allergen-tag{display:inline-block;padding:.1rem .5rem;border-radius:.25rem;font-size:.65rem;font-weight:600;background-color:var(--color-bg-alt);color:var(--color-text-muted);border:1px solid var(--color-border)}
+  </style>
+  <script src="js/theme.js"></script>
+</head>
+
+<body style="background-color:var(--color-bg);">
+  <div id="announcement-bar"></div>
+  <div id="navbar-placeholder"></div>
+
+  <main>
+
+    <!-- Page Header -->
+    <section class="py-14 md:py-20" style="background-color:var(--color-bg-alt);">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <p class="section-label reveal">Our Menu</p>
+        <h1 class="reveal text-4xl md:text-5xl font-bold mb-4" style="transition-delay:80ms;">
+          Cakes, Snacks & <span style="color:var(--color-primary);">Everything Nice</span>
+        </h1>
+        <p class="reveal text-lg max-w-2xl mx-auto" style="color:var(--color-text-muted); transition-delay:160ms;">
+          Every item is made fresh to order with premium ingredients. WhatsApp us to place your order — we'll confirm within the hour.
+        </p>
+        <!-- WhatsApp order CTA -->
+        <div class="mt-6 reveal" style="transition-delay:240ms;">
+          <a id="products-wa-cta" href="#" class="btn btn-whatsapp text-sm">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+            Order Any Item on WhatsApp
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="py-12 md:py-20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <!-- Filter Tabs -->
+        <div class="flex flex-wrap items-center gap-3 mb-10 pb-6" style="border-bottom:2px solid var(--color-border);">
+          <span class="text-sm font-semibold mr-2" style="color:var(--color-text-muted);">Filter:</span>
+          <button class="filter-btn active" data-filter="all" aria-pressed="true">
+            <span>🎂</span> All Items
+          </button>
+          <button class="filter-btn" data-filter="cakes" aria-pressed="false">
+            <span>🍰</span> Cakes
+          </button>
+          <button class="filter-btn" data-filter="snacks" aria-pressed="false">
+            <span>🍪</span> Snacks
+          </button>
+          <button class="filter-btn" data-filter="wedding" aria-pressed="false">
+            <span>💍</span> Wedding
+          </button>
+        </div>
+
+        <!-- Product count -->
+        <p id="products-count" class="text-sm mb-8" style="color:var(--color-text-muted);">
+          Showing all products
+        </p>
+
+        <!-- Products Grid — rendered by JS -->
+        <div id="products-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Populated by renderProducts() -->
+        </div>
+
+        <!-- Empty state -->
+        <div id="products-empty" class="hidden py-20 text-center">
+          <p class="text-4xl mb-4">🎂</p>
+          <h3 class="font-bold text-xl mb-2" style="color:var(--color-text);">No products found</h3>
+          <p class="text-sm" style="color:var(--color-text-muted);">Try a different filter or chat with us for custom orders.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Allergen Info -->
+    <section class="py-10" style="background-color:var(--color-bg-alt);">
+      <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center">
+        <p class="text-xs leading-relaxed" style="color:var(--color-text-muted);">
+          <strong style="color:var(--color-text);">Allergen Information:</strong>
+          Most of our products contain Gluten, Dairy, and Eggs. Products containing Nuts are clearly labelled.
+          Please chat with us on WhatsApp before ordering if you have dietary requirements or allergies.
+          All items are produced in a kitchen where nuts, gluten, and dairy are regularly used.
+        </p>
+      </div>
+    </section>
+
+    <!-- Custom Order CTA -->
+    <section class="py-14 md:py-20">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="rounded-2xl p-8 md:p-12 flex flex-col md:flex-row items-center justify-between gap-8"
+          style="background:linear-gradient(135deg, var(--color-primary) 0%, #B8940E 100%);">
+          <div class="text-white">
+            <h2 class="text-2xl md:text-3xl font-bold mb-2" style="font-family:var(--font-heading);">Don't see what you're looking for?</h2>
+            <p class="text-white/80 text-sm">We specialise in custom orders — any flavour, any design, any occasion.</p>
+          </div>
+          <div class="flex flex-col gap-3 flex-shrink-0">
+            <a href="custom-cakes.html" class="btn bg-white font-bold" style="color:var(--color-primary);">Custom Cakes →</a>
+            <a id="products-custom-wa" href="#" class="btn border-2 border-white text-white bg-transparent hover:bg-white/10">WhatsApp Us</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <div id="footer-placeholder"></div>
+  <div id="whatsapp-float-placeholder" class="whatsapp-float"></div>
+
+  <script src="data/products.js"></script>
+  <script src="data/testimonials.js"></script>
+  <script src="data/faq.js"></script>
+  <script src="js/config.js"></script>
+  <script src="js/components.js"></script>
+  <script src="js/main.js"></script>
+
+  <script>
+    let currentFilter = "all";
+
+    document.addEventListener("DOMContentLoaded", function () {
+      // Parse URL param ?filter=cakes
+      const params = new URLSearchParams(window.location.search);
+      const urlFilter = params.get("filter");
+      if (urlFilter) setActiveFilter(urlFilter);
+      else renderProducts("all");
+
+      // Set WhatsApp links
+      ["products-wa-cta", "products-custom-wa"].forEach(id => {
+        const el = document.getElementById(id); if (el) el.href = getWhatsAppLink();
+      });
+
+      // Attach filter buttons
+      document.querySelectorAll(".filter-btn").forEach(btn => {
+        btn.addEventListener("click", function () {
+          setActiveFilter(this.dataset.filter);
+        });
+      });
+    });
+
+    function setActiveFilter(filter) {
+      currentFilter = filter;
+      document.querySelectorAll(".filter-btn").forEach(btn => {
+        const isActive = btn.dataset.filter === filter;
+        btn.classList.toggle("active", isActive);
+        btn.setAttribute("aria-pressed", String(isActive));
+      });
+      renderProducts(filter);
+    }
+
+    function renderProducts(filter) {
+      const grid    = document.getElementById("products-grid");
+      const empty   = document.getElementById("products-empty");
+      const countEl = document.getElementById("products-count");
+      if (!grid) return;
+
+      const items = filter === "all" ? PRODUCTS : PRODUCTS.filter(p => p.category === filter);
+
+      if (!items.length) {
+        grid.innerHTML = "";
+        empty?.classList.remove("hidden");
+        if (countEl) countEl.textContent = "No products found.";
+        return;
+      }
+      empty?.classList.add("hidden");
+      if (countEl) countEl.textContent = `Showing ${items.length} ${filter === "all" ? "items" : filter}`;
+
+      grid.innerHTML = items.map((p, i) => `
+        <article class="card reveal flex flex-col" style="transition-delay:${(i % 6) * 80}ms;"
+          aria-label="${p.name}">
+          <!-- Image -->
+          <div class="relative overflow-hidden" style="height:240px;">
+            <img src="${p.image}" alt="${p.altText}"
+              loading="lazy"
+              class="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+              onerror="this.src='https://picsum.photos/seed/product-fallback/800/600'">
+            ${p.badge ? `<div class="absolute top-3 left-3"><span class="badge badge-gold">${p.badge}</span></div>` : ""}
+            <!-- Category label -->
+            <div class="absolute top-3 right-3">
+              <span class="badge badge-surface">${p.category}</span>
+            </div>
+          </div>
+
+          <!-- Body -->
+          <div class="p-5 flex flex-col flex-1">
+            <h2 class="font-bold text-lg mb-1" style="font-family:var(--font-heading); color:var(--color-text);">${p.name}</h2>
+            <p class="text-xs font-medium mb-3" style="color:var(--color-primary);">${p.tagline}</p>
+            <p class="text-sm leading-relaxed mb-4 flex-1" style="color:var(--color-text-muted);">${p.description}</p>
+
+            <!-- Meta: serves + allergens -->
+            <div class="mb-4 flex flex-wrap gap-1">
+              ${p.serves ? `<span class="allergen-tag">Serves ${p.serves}</span>` : ""}
+              ${(p.allergens || []).map(a => `<span class="allergen-tag">${a}</span>`).join("")}
+            </div>
+
+            <!-- Price + CTA -->
+            <div class="flex items-center justify-between mt-auto pt-4" style="border-top:1px solid var(--color-border);">
+              <span class="text-xl font-bold" style="color:var(--color-primary);">
+                ₦${p.price.toLocaleString("en-NG")}
+              </span>
+              <a href="${getProductWALink(p)}"
+                target="_blank" rel="noopener noreferrer"
+                class="btn btn-primary text-xs px-4 py-2">
+                <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+                Order Now
+              </a>
+            </div>
+          </div>
+        </article>`
+      ).join("");
+
+      // Trigger reveal
+      setTimeout(() => {
+        document.querySelectorAll("#products-grid .reveal").forEach(el => el.classList.add("visible"));
+      }, 80);
+    }
+
+    function getProductWALink(p) {
+      const msg = `Hello! I'd like to order:\n🎂 *${p.name}*\n💰 Price: ₦${p.price.toLocaleString("en-NG")}\n\nCould you confirm availability and delivery date?`;
+      return getWhatsAppLink(msg);
+    }
+  </script>
+</body>
+</html>

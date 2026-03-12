@@ -1,0 +1,28 @@
+# Dependencies
+node_modules/
+
+# Build output (compiled Tailwind CSS)
+# Uncomment the line below if you're committing ONLY the source CSS
+# assets/css/style.css
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Environment files (never commit these)
+.env
+.env.local
+.env.production
+
+# Logs
+npm-debug.log*

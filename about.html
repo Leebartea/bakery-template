@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en" class="">
+<!--
+  Sweet Crumbs Bakery — About Page
+  EDIT HERE: Update the story, team, values, and stats to match your client.
+-->
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us — Sweet Crumbs Bakery | Our Story & Values</title>
+  <meta name="description" content="Learn the story behind Sweet Crumbs Bakery — handcrafted cakes and snacks baked with love in Lagos, Nigeria since 2018.">
+  <link rel="canonical" href="https://sweetcrumbs.ng/about">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>tailwind.config = { darkMode: 'class', theme: { extend: { fontFamily: { heading: ["'Playfair Display'", 'Georgia', 'serif'], body: ["'Inter'", 'system-ui', 'sans-serif'] } } } }</script>
+  <style>
+    :root { --color-bg:#FFF8F0;--color-bg-alt:#FEF3E2;--color-surface:#FFFFFF;--color-primary:#C9A84C;--color-primary-hov:#B8940E;--color-accent:#E8A0B4;--color-text:#2C1810;--color-text-muted:#6B5344;--color-border:#E8D5B7;--color-shadow:rgba(44,24,16,0.08);--font-heading:'Playfair Display',Georgia,serif;--font-body:'Inter',system-ui,sans-serif;--radius-card:1rem; }
+    .dark { --color-bg:#0F0602;--color-bg-alt:#1E0D05;--color-surface:#271507;--color-primary:#D4AF37;--color-primary-hov:#E8C547;--color-accent:#C2688E;--color-text:#F5E6D3;--color-text-muted:#C4A882;--color-border:#3D1F0D;--color-shadow:rgba(0,0,0,0.4); }
+    *,*::before,*::after{box-sizing:border-box}html{scroll-behavior:smooth;font-family:var(--font-body)}body{background-color:var(--color-bg);color:var(--color-text);transition:background-color 300ms ease,color 300ms ease}h1,h2,h3,h4,h5,h6{font-family:var(--font-heading)}*{transition-property:background-color,border-color,color;transition-duration:300ms;transition-timing-function:ease}img,video,svg{transition:none}:focus-visible{outline:2px solid var(--color-primary);outline-offset:3px;border-radius:4px}.no-transition *{transition:none!important}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;font-weight:600;border-radius:.5rem;padding:.75rem 1.5rem;font-size:.875rem;transition:all .2s;text-decoration:none}
+    .btn-primary{background-color:var(--color-primary);border:2px solid var(--color-primary);color:#fff}.btn-primary:hover{background-color:var(--color-primary-hov);transform:translateY(-1px);box-shadow:0 6px 20px var(--color-shadow)}
+    .btn-whatsapp{background-color:#25D366;border:2px solid #25D366;color:#fff}.btn-whatsapp:hover{background-color:#1da851;transform:translateY(-1px)}
+    .btn-outline{border:2px solid var(--color-primary);color:var(--color-primary);background:transparent}.btn-outline:hover{background-color:var(--color-primary);color:#fff;transform:translateY(-1px)}
+    .card{background-color:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-card);overflow:hidden;box-shadow:0 2px 12px var(--color-shadow)}
+    .nav-link{position:relative;font-size:.875rem;font-weight:500;transition:color .2s;padding-bottom:.25rem;color:var(--color-text-muted);text-decoration:none}.nav-link::after{content:'';position:absolute;bottom:0;left:0;width:0;height:2px;background:var(--color-primary);transition:width .3s}.nav-link:hover,.nav-link.active{color:var(--color-primary)}.nav-link:hover::after,.nav-link.active::after{width:100%}
+    .theme-toggle{display:flex;align-items:center;justify-content:center;width:2.5rem;height:2.5rem;border-radius:9999px;border:1px solid var(--color-border);background-color:var(--color-surface);color:var(--color-text-muted);cursor:pointer;transition:all .2s}.theme-toggle:hover{border-color:var(--color-primary);color:var(--color-primary)}
+    .section-label{font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;margin-bottom:.5rem;color:var(--color-primary)}
+    .section-title{font-size:clamp(1.75rem,4vw,2.5rem);font-weight:700;margin-bottom:1rem;color:var(--color-text);font-family:var(--font-heading)}
+    .section-subtitle{font-size:1.1rem;color:var(--color-text-muted);max-width:40rem}
+    .badge{display:inline-flex;align-items:center;padding:.25rem .75rem;border-radius:9999px;font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em}.badge-gold{background-color:var(--color-primary);color:#fff}
+    .whatsapp-float{position:fixed;bottom:1.5rem;right:1.5rem;z-index:50}
+    .whatsapp-float a{display:flex;align-items:center;gap:.5rem;background:#25D366;color:#fff;padding:.75rem 1.25rem;border-radius:9999px;font-weight:600;font-size:.875rem;box-shadow:0 8px 24px rgba(37,211,102,.35);text-decoration:none;transition:all .3s}.whatsapp-float a:hover{background:#1da851;transform:scale(1.05)}
+    .announcement-bar{background-color:var(--color-primary);color:#fff;text-align:center;padding:.625rem 1rem;font-size:.8rem;font-weight:500}.dark .announcement-bar{background-color:#1E0D05;color:var(--color-primary)}
+    .reveal{opacity:0;transform:translateY(24px);transition:opacity 600ms ease,transform 600ms ease}.reveal.visible{opacity:1;transform:translateY(0)}
+  </style>
+  <script src="js/theme.js"></script>
+</head>
+
+<body style="background-color:var(--color-bg);">
+  <div id="announcement-bar"></div>
+  <div id="navbar-placeholder"></div>
+
+  <main>
+
+    <!-- Page Header -->
+    <section class="py-16 md:py-24 relative overflow-hidden" style="background-color:var(--color-bg-alt);">
+      <div class="absolute inset-0 opacity-40">
+        <img src="https://picsum.photos/seed/about-hero/1400/600" alt="" role="presentation" loading="lazy" class="w-full h-full object-cover">
+        <div class="absolute inset-0" style="background:linear-gradient(to right, var(--color-bg-alt) 40%, transparent 100%);"></div>
+      </div>
+      <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-xl">
+          <p class="section-label reveal">Our Story</p>
+          <h1 class="reveal text-4xl md:text-6xl font-bold mb-4" style="color:var(--color-text); transition-delay:100ms;">
+            Baked with Love<br><span style="color:var(--color-primary);">Since 2018</span>
+          </h1>
+          <p class="reveal text-lg leading-relaxed" style="color:var(--color-text-muted); transition-delay:200ms;">
+            From a home kitchen in Lagos to a beloved bakery trusted by hundreds of families — this is our story.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Our Story Section -->
+    <!-- EDIT HERE: Update the story content to match your client's real story -->
+    <section class="py-16 md:py-24">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div class="reveal">
+            <img src="https://picsum.photos/seed/baker-story/800/600"
+              alt="Baker lovingly decorating a celebration cake in the Sweet Crumbs kitchen"
+              loading="lazy"
+              class="w-full rounded-2xl shadow-xl object-cover"
+              style="box-shadow:0 24px 64px var(--color-shadow);"
+              onerror="this.src='https://picsum.photos/seed/fallback-story/800/600'">
+          </div>
+          <div>
+            <p class="section-label reveal">How It All Started</p>
+            <h2 class="section-title reveal" style="transition-delay:80ms;">A Passion for Baking,<br>A Dream of Sharing</h2>
+            <!-- EDIT HERE: Replace with actual bakery story -->
+            <div class="space-y-4 text-base leading-relaxed reveal" style="color:var(--color-text-muted); transition-delay:160ms;">
+              <p>
+                Sweet Crumbs was born in 2018 from a simple belief: that every occasion deserves a cake as memorable as the moment itself. Our founder, <strong style="color:var(--color-text);">Adaeze Okafor</strong>, began baking in her Lagos home kitchen for friends and family — pouring love and precision into every tier, every swirl of buttercream, every hand-painted detail.
+              </p>
+              <p>
+                Word spread quickly. Birthday parties, bridal showers, corporate events — orders flooded in. By 2020, Sweet Crumbs had outgrown the kitchen and moved into a dedicated bakery space in Victoria Island. Today, with a team of passionate bakers and cake artists, we serve hundreds of customers across Nigeria every month.
+              </p>
+              <p>
+                Our philosophy hasn't changed: <em style="color:var(--color-primary);">every cake should be the most beautiful, most delicious thing at the table.</em> Whether it's a simple birthday sponge or a six-tier wedding masterpiece, we pour the same passion into everything we make.
+              </p>
+            </div>
+            <div class="mt-8 flex flex-col sm:flex-row gap-4 reveal" style="transition-delay:240ms;">
+              <a href="contact.html" class="btn btn-primary">Order Your Cake</a>
+              <a id="about-wa-cta" href="#" class="btn btn-whatsapp">
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+                Chat with Us
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stats -->
+    <section class="py-14 md:py-20" style="background-color:var(--color-primary);">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center text-white">
+          <div class="reveal">
+            <p class="text-4xl md:text-5xl font-bold mb-1" style="font-family:var(--font-heading);">6+</p>
+            <p class="text-sm opacity-80 font-medium">Years Baking</p>
+          </div>
+          <div class="reveal" style="transition-delay:100ms;">
+            <p class="text-4xl md:text-5xl font-bold mb-1" style="font-family:var(--font-heading);">2,000+</p>
+            <p class="text-sm opacity-80 font-medium">Cakes Delivered</p>
+          </div>
+          <div class="reveal" style="transition-delay:200ms;">
+            <p class="text-4xl md:text-5xl font-bold mb-1" style="font-family:var(--font-heading);">200+</p>
+            <p class="text-sm opacity-80 font-medium">5-Star Reviews</p>
+          </div>
+          <div class="reveal" style="transition-delay:300ms;">
+            <p class="text-4xl md:text-5xl font-bold mb-1" style="font-family:var(--font-heading);">100%</p>
+            <p class="text-sm opacity-80 font-medium">Made Fresh Daily</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Our Values -->
+    <section class="py-16 md:py-24" style="background-color:var(--color-bg-alt);">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-14">
+          <p class="section-label reveal">What We Stand For</p>
+          <h2 class="section-title reveal" style="transition-delay:80ms;">Our Values</h2>
+          <p class="section-subtitle mx-auto reveal" style="transition-delay:160ms;">These principles guide every cake we bake and every customer interaction.</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="card p-7 reveal">
+            <div class="text-3xl mb-4">🌿</div>
+            <h3 class="font-bold text-lg mb-3" style="font-family:var(--font-heading); color:var(--color-text);">Quality Ingredients</h3>
+            <p class="text-sm leading-relaxed" style="color:var(--color-text-muted);">We source premium butter, fresh eggs, and real chocolate. No artificial shortcuts — ever. What goes into our cakes is what makes them taste extraordinary.</p>
+          </div>
+          <div class="card p-7 reveal" style="transition-delay:120ms;">
+            <div class="text-3xl mb-4">🎨</div>
+            <h3 class="font-bold text-lg mb-3" style="font-family:var(--font-heading); color:var(--color-text);">Artisan Craftsmanship</h3>
+            <p class="text-sm leading-relaxed" style="color:var(--color-text-muted);">Every cake is decorated by hand. We take pride in the details — a hand-painted bloom, a perfectly smooth fondant finish, a delicately piped border.</p>
+          </div>
+          <div class="card p-7 reveal" style="transition-delay:240ms;">
+            <div class="text-3xl mb-4">💛</div>
+            <h3 class="font-bold text-lg mb-3" style="font-family:var(--font-heading); color:var(--color-text);">Customer Happiness</h3>
+            <p class="text-sm leading-relaxed" style="color:var(--color-text-muted);">Your celebration matters to us. We listen carefully, communicate clearly, and work tirelessly to ensure your experience with us is as sweet as the cake itself.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Team Section -->
+    <!-- EDIT HERE: Replace with actual team photos and bios -->
+    <section class="py-16 md:py-24">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-14">
+          <p class="section-label reveal">The People Behind the Magic</p>
+          <h2 class="section-title reveal" style="transition-delay:80ms;">Meet Our Team</h2>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Team member 1 -->
+          <div class="card overflow-hidden text-center reveal">
+            <div class="h-64 overflow-hidden">
+              <img src="https://picsum.photos/seed/team-ada/600/500" alt="Adaeze Okafor - Founder & Head Baker" loading="lazy" class="w-full h-full object-cover object-top">
+            </div>
+            <div class="p-6">
+              <h3 class="font-bold text-lg mb-1" style="font-family:var(--font-heading); color:var(--color-text);">Adaeze Okafor</h3>
+              <p class="text-sm font-medium mb-3" style="color:var(--color-primary);">Founder & Head Baker</p>
+              <p class="text-sm leading-relaxed" style="color:var(--color-text-muted);">10+ years baking experience. Trained at Le Cordon Bleu, Lagos. Passionate about edible art and making celebrations unforgettable.</p>
+            </div>
+          </div>
+          <!-- Team member 2 -->
+          <div class="card overflow-hidden text-center reveal" style="transition-delay:120ms;">
+            <div class="h-64 overflow-hidden">
+              <img src="https://picsum.photos/seed/team-chukwu/600/500" alt="Chukwuemeka Eze - Pastry Chef" loading="lazy" class="w-full h-full object-cover object-top">
+            </div>
+            <div class="p-6">
+              <h3 class="font-bold text-lg mb-1" style="font-family:var(--font-heading); color:var(--color-text);">Chukwuemeka Eze</h3>
+              <p class="text-sm font-medium mb-3" style="color:var(--color-primary);">Lead Pastry Chef</p>
+              <p class="text-sm leading-relaxed" style="color:var(--color-text-muted);">Specialises in French pastries and Nigerian snacks. Trained in Accra and Paris. Brings precision and innovation to every creation.</p>
+            </div>
+          </div>
+          <!-- Team member 3 -->
+          <div class="card overflow-hidden text-center reveal sm:col-span-2 lg:col-span-1" style="transition-delay:240ms;">
+            <div class="h-64 overflow-hidden">
+              <img src="https://picsum.photos/seed/team-fatima/600/500" alt="Fatimah Hassan - Cake Designer" loading="lazy" class="w-full h-full object-cover object-top">
+            </div>
+            <div class="p-6">
+              <h3 class="font-bold text-lg mb-1" style="font-family:var(--font-heading); color:var(--color-text);">Fatimah Hassan</h3>
+              <p class="text-sm font-medium mb-3" style="color:var(--color-primary);">Lead Cake Designer</p>
+              <p class="text-sm leading-relaxed" style="color:var(--color-text-muted);">Sugar flower artist and fondant sculptor. Creates intricate designs that turn cakes into centrepieces. 7 years in the industry.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="py-14 md:py-20" style="background-color:var(--color-bg-alt);">
+      <div class="max-w-2xl mx-auto px-4 sm:px-6 text-center">
+        <p class="section-label reveal">Let's Bake Something Beautiful</p>
+        <h2 class="section-title reveal" style="transition-delay:80ms;">Ready to Order Your Dream Cake?</h2>
+        <p class="section-subtitle mx-auto mb-10 reveal" style="transition-delay:160ms;">
+          Chat with us on WhatsApp or browse our full menu to find your perfect bake.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center reveal" style="transition-delay:240ms;">
+          <a href="products.html" class="btn btn-primary text-base px-8 py-4">View Our Menu</a>
+          <a id="about-final-wa" href="#" class="btn btn-whatsapp text-base px-8 py-4">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+            Order on WhatsApp
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <div id="footer-placeholder"></div>
+  <div id="whatsapp-float-placeholder" class="whatsapp-float"></div>
+
+  <script src="data/products.js"></script>
+  <script src="data/testimonials.js"></script>
+  <script src="data/faq.js"></script>
+  <script src="js/config.js"></script>
+  <script src="js/components.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const waIds = ["about-wa-cta", "about-final-wa"];
+      waIds.forEach(id => { const el = document.getElementById(id); if (el) el.href = getWhatsAppLink(); });
+    });
+  </script>
+</body>
+</html>

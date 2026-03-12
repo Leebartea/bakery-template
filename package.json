@@ -1,0 +1,15 @@
+{
+  "name": "sweet-crumbs-bakery-template",
+  "version": "1.0.0",
+  "description": "Premium cakes & snacks bakery website template with light/dark mode",
+  "scripts": {
+    "dev": "npx tailwindcss -i ./assets/css/input.css -o ./assets/css/style.css --watch",
+    "build": "npx tailwindcss -i ./assets/css/input.css -o ./assets/css/style.css --minify",
+    "serve": "npx serve . -p 3000"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.0"
+  },
+  "keywords": ["bakery", "template", "tailwind", "dark-mode"],
+  "license": "MIT"
+}
