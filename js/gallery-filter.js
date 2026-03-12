@@ -22,6 +22,14 @@ const GALLERY_ITEMS = [
   { id: 14, category: "cakes",   title: "Caramel Salted Butter", image: "https://loremflickr.com/600/600/caramel,cake?lock=14",     alt: "Caramel salted butter cake"    },
   { id: 15, category: "snacks",  title: "Puff Puff Delight",     image: "https://loremflickr.com/600/600/donut,pastry?lock=15",     alt: "Fresh golden puff puff"        },
   { id: 16, category: "custom",  title: "Princess Tiara Cake",   image: "https://loremflickr.com/600/600/birthday,cake?lock=16",    alt: "Pink princess tiara birthday cake"},
+  { id: 17, category: "events",  title: "Birthday Sprinkle Cake",  image: "https://loremflickr.com/600/600/birthday,cake?lock=17",    alt: "Colourful birthday sprinkle cake"       },
+  { id: 18, category: "events",  title: "Anniversary Roses Cake",  image: "https://loremflickr.com/600/600/romantic,cake?lock=18",    alt: "Heart-shaped anniversary cake with roses"},
+  { id: 19, category: "events",  title: "Baby Shower Pastel Cake", image: "https://loremflickr.com/600/600/baby,cake?lock=19",        alt: "Pastel baby shower cake"                },
+  { id: 20, category: "events",  title: "Graduation Day Cake",     image: "https://loremflickr.com/600/600/graduation,cake?lock=20",  alt: "Graduation cake with mortar board"      },
+  { id: 21, category: "events",  title: "Retirement Gold Cake",    image: "https://loremflickr.com/600/600/celebration,cake?lock=21", alt: "Gold retirement celebration cake"       },
+  { id: 22, category: "events",  title: "Engagement Party Cake",   image: "https://loremflickr.com/600/600/engagement,cake?lock=22",  alt: "Glamorous engagement cake with gold drip"},
+  { id: 23, category: "events",  title: "Valentine's Dessert Box", image: "https://loremflickr.com/600/600/dessert,romantic?lock=23", alt: "Valentine's romantic dessert box"       },
+  { id: 24, category: "events",  title: "Corporate Event Platter", image: "https://loremflickr.com/600/600/dessert,platter?lock=24",  alt: "Corporate dessert platter assortment"   },
 ];
 
 document.addEventListener("DOMContentLoaded", function () {
