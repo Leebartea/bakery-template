@@ -6,22 +6,22 @@
 const GALLERY_ITEMS = [
   // Format: { id, category, title, image, alt }
   // Categories: "cakes" | "snacks" | "wedding" | "custom"
-  { id: 1,  category: "cakes",   title: "Victoria Sponge",       image: "https://picsum.photos/seed/g-victoria/600/600",   alt: "Victoria Sponge cake"          },
-  { id: 2,  category: "cakes",   title: "Chocolate Fudge",       image: "https://picsum.photos/seed/g-chocfudge/600/600",  alt: "Rich chocolate fudge cake"     },
-  { id: 3,  category: "wedding", title: "White Rose Wedding",     image: "https://picsum.photos/seed/g-wedding1/600/600",   alt: "Elegant white wedding cake"    },
-  { id: 4,  category: "snacks",  title: "Chin Chin Box",         image: "https://picsum.photos/seed/g-chinchin/600/600",   alt: "Assorted chin chin gift box"   },
-  { id: 5,  category: "cakes",   title: "Red Velvet Layer",      image: "https://picsum.photos/seed/g-redvelvet/600/600",  alt: "Red velvet layer cake"         },
-  { id: 6,  category: "custom",  title: "Unicorn Cake",          image: "https://picsum.photos/seed/g-unicorn/600/600",    alt: "Custom unicorn birthday cake"  },
-  { id: 7,  category: "wedding", title: "Gold Leaf 3-Tier",      image: "https://picsum.photos/seed/g-wedding2/600/600",   alt: "3-tier gold leaf wedding cake" },
-  { id: 8,  category: "snacks",  title: "Shortbread Tin",        image: "https://picsum.photos/seed/g-shortbread/600/600", alt: "Butter shortbread cookie tin"  },
-  { id: 9,  category: "cakes",   title: "Lemon Drizzle",         image: "https://picsum.photos/seed/g-lemon/600/600",      alt: "Lemon drizzle cake"            },
-  { id: 10, category: "custom",  title: "Football Theme Cake",   image: "https://picsum.photos/seed/g-football/600/600",   alt: "Custom football themed cake"   },
-  { id: 11, category: "snacks",  title: "Brownie Selection",     image: "https://picsum.photos/seed/g-brownie/600/600",    alt: "Fudgy chocolate brownie box"   },
-  { id: 12, category: "wedding", title: "Floral Tier Cake",      image: "https://picsum.photos/seed/g-floral/600/600",     alt: "Floral decorated wedding cake" },
-  { id: 13, category: "custom",  title: "Number 30 Cake",        image: "https://picsum.photos/seed/g-number/600/600",     alt: "Custom number 30 birthday cake"},
-  { id: 14, category: "cakes",   title: "Caramel Salted Butter", image: "https://picsum.photos/seed/g-caramel/600/600",    alt: "Caramel salted butter cake"    },
-  { id: 15, category: "snacks",  title: "Puff Puff Delight",     image: "https://picsum.photos/seed/g-puffpuff/600/600",   alt: "Fresh golden puff puff"        },
-  { id: 16, category: "custom",  title: "Princess Tiara Cake",   image: "https://picsum.photos/seed/g-princess/600/600",   alt: "Pink princess tiara birthday cake"},
+  { id: 1,  category: "cakes",   title: "Victoria Sponge",       image: "https://loremflickr.com/600/600/cake,vanilla?lock=1",      alt: "Victoria Sponge cake"          },
+  { id: 2,  category: "cakes",   title: "Chocolate Fudge",       image: "https://loremflickr.com/600/600/chocolate,cake?lock=2",    alt: "Rich chocolate fudge cake"     },
+  { id: 3,  category: "wedding", title: "White Rose Wedding",     image: "https://loremflickr.com/600/600/wedding,cake?lock=3",      alt: "Elegant white wedding cake"    },
+  { id: 4,  category: "snacks",  title: "Chin Chin Box",         image: "https://loremflickr.com/600/600/snack,pastry?lock=4",      alt: "Assorted chin chin gift box"   },
+  { id: 5,  category: "cakes",   title: "Red Velvet Layer",      image: "https://loremflickr.com/600/600/cake,red?lock=5",          alt: "Red velvet layer cake"         },
+  { id: 6,  category: "custom",  title: "Unicorn Cake",          image: "https://loremflickr.com/600/600/birthday,cake?lock=6",     alt: "Custom unicorn birthday cake"  },
+  { id: 7,  category: "wedding", title: "Gold Leaf 3-Tier",      image: "https://loremflickr.com/600/600/wedding,cake?lock=7",      alt: "3-tier gold leaf wedding cake" },
+  { id: 8,  category: "snacks",  title: "Shortbread Tin",        image: "https://loremflickr.com/600/600/cookies,biscuit?lock=8",   alt: "Butter shortbread cookie tin"  },
+  { id: 9,  category: "cakes",   title: "Lemon Drizzle",         image: "https://loremflickr.com/600/600/lemon,cake?lock=9",        alt: "Lemon drizzle cake"            },
+  { id: 10, category: "custom",  title: "Football Theme Cake",   image: "https://loremflickr.com/600/600/birthday,cake?lock=10",    alt: "Custom football themed cake"   },
+  { id: 11, category: "snacks",  title: "Brownie Selection",     image: "https://loremflickr.com/600/600/brownie,chocolate?lock=11", alt: "Fudgy chocolate brownie box"  },
+  { id: 12, category: "wedding", title: "Floral Tier Cake",      image: "https://loremflickr.com/600/600/wedding,cake?lock=12",     alt: "Floral decorated wedding cake" },
+  { id: 13, category: "custom",  title: "Number 30 Cake",        image: "https://loremflickr.com/600/600/birthday,cake?lock=13",    alt: "Custom number 30 birthday cake"},
+  { id: 14, category: "cakes",   title: "Caramel Salted Butter", image: "https://loremflickr.com/600/600/caramel,cake?lock=14",     alt: "Caramel salted butter cake"    },
+  { id: 15, category: "snacks",  title: "Puff Puff Delight",     image: "https://loremflickr.com/600/600/donut,pastry?lock=15",     alt: "Fresh golden puff puff"        },
+  { id: 16, category: "custom",  title: "Princess Tiara Cake",   image: "https://loremflickr.com/600/600/birthday,cake?lock=16",    alt: "Pink princess tiara birthday cake"},
 ];
 
 document.addEventListener("DOMContentLoaded", function () {

@@ -315,6 +315,177 @@ Full details in **IMAGES.md**. Quick reference:
 
 ---
 
+---
+
+## CHANGE 16 — About Page Story & Team Text
+
+**File to edit:** `about.html` — search `EDIT HERE: Replace with actual bakery story`
+
+**What to update:**
+
+```html
+<!-- 1. Founder name (line ~85) -->
+<strong>Adaeze Okafor</strong>  →  <strong>Your Founder Name</strong>
+
+<!-- 2. Story paragraphs (2–3 paragraphs) — replace the entire <div class="space-y-4..."> block -->
+<p>Founded in 20XX from a passion for...</p>
+<p>By 20XX we had grown to...</p>
+
+<!-- 3. Stats (search for "years baking") -->
+<span>6+</span>  Years Baking        → your actual years
+<span>2,400+</span> Cakes Delivered  → your actual number
+<span>4.9★</span> Average Review     → your actual rating
+
+<!-- 4. Team cards (search "EDIT HERE: Replace with actual team") -->
+<!-- Update name, role, bio, and photo (see IMAGES.md GROUP 4) for each team member -->
+<h3>Adaeze Okafor</h3>         → Your Name
+<p>Founder & Head Baker</p>    → Your Role
+<p>Bio text here...</p>        → Your bio
+
+<!-- 5. Page <title> and <meta description> in <head> -->
+<title>About Us — Sweet Crumbs Bakery...</title>
+<meta name="description" content="Learn the story behind Sweet Crumbs Bakery...">
+```
+
+---
+
+## CHANGE 17 — Custom Cakes Page Content
+
+**File to edit:** `custom-cakes.html`
+
+**What to update:**
+
+```html
+<!-- 1. Occasion cards (search "EDIT HERE: Add/remove occasion cards") -->
+<!-- Each card shows: Birthday, Wedding, Baby Shower, Corporate -->
+<!-- Add/remove occasion types to match what you actually offer -->
+
+<!-- 2. Cake flavours & sizes (search "EDIT HERE: Update flavours, sizes") -->
+<!-- Update the checkbox options for sponge flavours, tier sizes, finishes -->
+
+<!-- 3. Starting prices (search "EDIT HERE: Update starting prices") -->
+<!-- Update the price guide table — e.g.: 6" single tier from ₦12,000 -->
+
+<!-- 4. Process steps — update timeframes if different -->
+<!-- e.g.: "Order at least 7 days in advance" — change to your actual lead time -->
+
+<!-- 5. Page <title> in <head> -->
+<title>Custom Cakes — Sweet Crumbs Bakery...</title>
+```
+
+---
+
+## CHANGE 18 — Contact Page Content
+
+**File to edit:** `contact.html`
+
+**What to update:**
+
+```html
+<!-- 1. Page <title> and <meta description> in <head> -->
+<title>Contact & Order — Sweet Crumbs Bakery...</title>
+
+<!-- 2. Google Maps embed (search for <iframe src="https://maps.google.com") -->
+<!-- Replace the iframe src with your real Google Maps embed URL -->
+<!-- Get it from: Google Maps → Share → Embed a map → Copy HTML -->
+
+<!-- 3. Contact details are pulled automatically from js/config.js -->
+<!-- No HTML edits needed for address, phone, email, hours -->
+```
+
+---
+
+## CHANGE 19 — Page Hero Headlines (H1 Text on Interior Pages)
+
+Each interior page has a large hero banner with a headline and subtitle. These are hardcoded in the HTML.
+
+| Page | File | Search for | What to change |
+|------|------|-----------|----------------|
+| About | `about.html` | `Our Story` | Change H1 to match your bakery voice |
+| Products | `products.html` | `Our Cakes & Snacks` | Update if you renamed categories |
+| Custom Cakes | `custom-cakes.html` | `Custom Cakes, Made With Love` | Your tagline |
+| Gallery | `gallery.html` | `Our Gallery` | Keep or personalise |
+| Contact | `contact.html` | `Get In Touch` | Update if needed |
+
+**How to find:** Open the HTML file, search (`Cmd+F`) for `<h1` — the hero H1 is near the top of `<main>`.
+
+---
+
+## CHANGE 20 — Homepage Sections (How It Works + Features)
+
+**File to edit:** `index.html`
+
+```html
+<!-- 1. "How It Works" steps (search "How It Works" in index.html) -->
+<!-- Each step has: Step number, title, description -->
+<!-- Update to match your actual ordering process -->
+
+<!-- 2. Feature/USP section (search for "Why Choose Us" or feature icons) -->
+<!-- Update each feature title and description to match your real strengths -->
+<!-- e.g.: "Same-day delivery", "Halal certified", "Nut-free kitchen available" -->
+
+<!-- 3. Announcement bar text -->
+<!-- Controlled from js/config.js → announcement.text -->
+<!-- Already covered in CHANGE 5 -->
+```
+
+---
+
+## CHANGE 21 — Footer "Made by" Credit Line
+
+The footer currently shows:
+```
+Made with ❤️ — Template by Sweet Crumbs Theme
+```
+
+**File to edit:** `js/components.js` — search for `Template by`
+
+```js
+// Around line 286 — change or remove the credit line:
+<p>Made with ❤️ — Template by <a href="#">Sweet Crumbs Theme</a></p>
+
+// Options:
+// Option A: Remove it entirely (delete the <p> line)
+// Option B: Replace with your studio name:
+<p>Built by <a href="https://yourstudio.com">Your Studio</a></p>
+// Option C: Keep as-is (fine for client sites)
+```
+
+> Note: The footer copyright line `© 2026 [Business Name]. All rights reserved.`
+> **auto-updates every year** — it uses `new Date().getFullYear()` in JS, so you never need to manually update it.
+
+---
+
+## CHANGE 22 — Deposit & Payment Policy Text
+
+**File to edit:** `data/faq.js` — find the FAQ about deposits/payment
+
+Also appears in `custom-cakes.html` — search for `50%` or `deposit`.
+
+```js
+// data/faq.js — find the payment/deposit question and update the answer:
+{
+  category: "payment",
+  question: "Do you require a deposit?",
+  answer: "Yes, we require a 50% deposit to confirm your order...",  // ← update %
+},
+```
+
+---
+
+## CHANGE 23 — Delivery Areas & Conditions
+
+**File to edit:** `data/faq.js` — find the delivery FAQ
+
+Also check `js/config.js → announcement.text` if it mentions delivery areas.
+
+```js
+// Update to your actual delivery radius and fees:
+answer: "We deliver within Lagos Island and Victoria Island. Delivery fee from ₦2,000...",
+```
+
+---
+
 ## ✅ Quick Sanity Check After Editing
 
 Run through this before going live:

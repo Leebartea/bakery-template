@@ -1,13 +1,11 @@
-# 🖼️ Image Replacement Guide
+# Image Guide — Bakery Template
 
-All 59 placeholder images (from `picsum.photos`) are listed below, grouped by file.
-Replace each URL with your own photo URL or a local path like `assets/images/hero.jpg`.
-
-**Before replacing:** Read the recommended specs in the table header for each group.
+All placeholder images now use `loremflickr.com` (food/bakery-specific) instead of random stock photos.
+When you're ready to go live, replace every placeholder URL with your own photo.
 
 ---
 
-## Quick Swap Rules
+## Quick Rules
 
 | Rule | Detail |
 |------|--------|
@@ -15,232 +13,266 @@ Replace each URL with your own photo URL or a local path like `assets/images/her
 | Compression | Target < 120 KB per image. Use [squoosh.app](https://squoosh.app) (free, browser-based). |
 | Local path | Save to `assets/images/` and use path like `assets/images/hero.jpg` |
 | Remote URL | Any HTTPS image URL works (Cloudinary, Unsplash, your CDN) |
-| Alt text | Already written — do NOT remove or blank out `alt=""` attributes |
+| Alt text | Already written — do NOT blank out `alt=""` attributes |
 
 ---
 
-## GROUP 1 — Product Images
+## WHERE TO PLACE YOUR CUSTOM IMAGES — File Map
+
+This table shows exactly where each image lives and how to replace it.
+
+### GROUP 1 — Product Card Images
 **File:** `data/products.js`
-**Recommended size:** 800 × 600 px (landscape) | < 120 KB | WebP
+**Find:** the `image:` line for each product ID
+**Recommended size:** 800 × 600 px | < 120 KB | WebP
 
-Replace the `image:` value for each product in the array.
+| ID | Product | File → Variable | Current placeholder | Ideal photo |
+|----|---------|-----------------|---------------------|-------------|
+| `c001` | Victoria Sponge | `data/products.js` → `image:` in id `"c001"` | `loremflickr.com/.../cake,vanilla?lock=10` | Overhead shot, icing sugar dusted |
+| `c002` | Dark Chocolate Fudge | `data/products.js` → `image:` in id `"c002"` | `loremflickr.com/.../chocolate,cake?lock=20` | Dark ganache drizzle, moody lighting |
+| `c003` | Red Velvet Dream | `data/products.js` → `image:` in id `"c003"` | `loremflickr.com/.../cake,red?lock=30` | Slice showing red interior + cream frosting |
+| `c004` | Lemon Sunshine Drizzle | `data/products.js` → `image:` in id `"c004"` | `loremflickr.com/.../lemon,cake?lock=40` | Bright natural light, crackly glaze |
+| `c005` | Strawberry & Cream Gateau | `data/products.js` → `image:` in id `"c005"` | `loremflickr.com/.../strawberry,cake?lock=50` | Fresh berries on top, elegant |
+| `c006` | Caramel Salted Butter | `data/products.js` → `image:` in id `"c006"` | `loremflickr.com/.../caramel,cake?lock=60` | Caramel drizzle, golden warm tones |
+| `s001` | Assorted Chin Chin | `data/products.js` → `image:` in id `"s001"` | `loremflickr.com/.../snack,pastry?lock=70` | Golden chin chin in premium box/bowl |
+| `s002` | Butter Shortbread Tin | `data/products.js` → `image:` in id `"s002"` | `loremflickr.com/.../cookies,biscuit?lock=80` | Cookies in gold tin, gift presentation |
+| `s003` | Fudgy Brownies | `data/products.js` → `image:` in id `"s003"` | `loremflickr.com/.../brownie,chocolate?lock=90` | Stack, gooey cross-section visible |
+| `s004` | Puff Puff (12 pcs) | `data/products.js` → `image:` in id `"s004"` | `loremflickr.com/.../donut,pastry?lock=100` | Golden pile, icing sugar dusted |
+| `s005` | Savoury Meat Pies | `data/products.js` → `image:` in id `"s005"` | `loremflickr.com/.../pie,pastry?lock=110` | Golden flaky pies, one cut open |
+| `s006` | Premium Dessert Box | `data/products.js` → `image:` in id `"s006"` | `loremflickr.com/.../dessert,box?lock=120` | Gift box open, assorted sweets |
+| `w001` | 2-Tier Wedding Cake | `data/products.js` → `image:` in id `"w001"` | `loremflickr.com/.../wedding,cake?lock=130` | Elegant white fondant, floral décor |
+| `w002` | 3-Tier Wedding Cake | `data/products.js` → `image:` in id `"w002"` | `loremflickr.com/.../wedding,cake?lock=140` | Grand 3-tier, gold accents, sugar flowers |
 
-| Product ID | Current placeholder slug | Description of ideal photo |
-|-----------|--------------------------|---------------------------|
-| `c001` | `seed/victoria-sponge/800/600` | Overhead shot of Victoria Sponge with icing sugar dusting |
-| `c002` | `seed/choc-fudge-cake/800/600` | Dark chocolate fudge cake, ganache drizzle, moody lighting |
-| `c003` | `seed/red-velvet/800/600` | Red velvet slice showing vivid red interior + cream frosting |
-| `c004` | `seed/lemon-drizzle/800/600` | Lemon drizzle loaf with crackly glaze, bright natural light |
-| `c005` | `seed/strawberry-gateau/800/600` | Strawberry & cream gateau with fresh berries on top |
-| `c006` | `seed/caramel-cake/800/600` | Caramel drizzle cake, golden tones, warm lighting |
-| `s001` | `seed/chin-chin/800/600` | Chin chin in a premium box or bowl, golden and crunchy-looking |
-| `s002` | `seed/shortbread-tin/800/600` | Shortbread cookies in a gold tin, elegant gift presentation |
-| `s003` | `seed/fudgy-brownies/800/600` | Stack of fudgy brownies, cross-section showing gooey centre |
-| `s004` | `seed/puff-puff/800/600` | Fresh golden puff puff, dusted with icing sugar, pile view |
-| `s005` | `seed/meat-pie/800/600` | Golden flaky meat pies, some whole, one cut open |
-| `s006` | `seed/dessert-box/800/600` | Premium gift box open, showing assorted sweets inside |
-| `w001` | `seed/wedding-cake-2tier/800/600` | Elegant 2-tier white wedding cake, floral décor |
-| `w002` | `seed/wedding-cake-3tier/800/600` | Grand 3-tier wedding cake, gold accents, sugar flowers |
-
-### How to change a product image:
+**How to change a product image:**
 ```js
-// data/products.js — find the product by id and update image:
+// data/products.js — find the product by id, update the image: line
 {
   id: "c001",
   // ...
-  image: "assets/images/victoria-sponge.webp",  // ← Change this line
-  altText: "Classic Victoria Sponge cake",       // ← Keep this descriptive
+  image: "assets/images/products/victoria-sponge.webp",  // ← Change this
+  altText: "Classic Victoria Sponge cake",                // ← Keep descriptive
 },
 ```
 
 ---
 
-## GROUP 2 — Gallery Images
-**File:** `js/gallery-filter.js` — edit the `GALLERY_ITEMS` array
+### GROUP 2 — Gallery Grid Images
+**File:** `js/gallery-filter.js` → `GALLERY_ITEMS` array (top of file, lines 9–24)
 **Recommended size:** 600 × 600 px (square) | < 80 KB | WebP
 
-| Gallery ID | Current placeholder | Category | Ideal photo |
-|-----------|---------------------|----------|-------------|
-| `1` | `seed/g-victoria/600/600` | cakes | Victoria sponge |
-| `2` | `seed/g-chocfudge/600/600` | cakes | Chocolate fudge cake |
-| `3` | `seed/g-wedding1/600/600` | wedding | White rose wedding cake |
-| `4` | `seed/g-chinchin/600/600` | snacks | Chin chin gift box |
-| `5` | `seed/g-redvelvet/600/600` | cakes | Red velvet layer cake |
-| `6` | `seed/g-unicorn/600/600` | custom | Unicorn birthday cake |
-| `7` | `seed/g-wedding2/600/600` | wedding | Gold leaf 3-tier cake |
-| `8` | `seed/g-shortbread/600/600` | snacks | Shortbread cookie tin |
-| `9` | `seed/g-lemon/600/600` | cakes | Lemon drizzle |
-| `10` | `seed/g-football/600/600` | custom | Football theme cake |
-| `11` | `seed/g-brownie/600/600` | snacks | Brownie selection box |
-| `12` | `seed/g-floral/600/600` | wedding | Floral tier cake |
-| `13` | `seed/g-number/600/600` | custom | Number 30 birthday cake |
-| `14` | `seed/g-caramel/600/600` | cakes | Caramel salted butter cake |
-| `15` | `seed/g-puffpuff/600/600` | snacks | Puff puff delight |
-| `16` | `seed/g-princess/600/600` | custom | Princess tiara cake |
+| ID | Title | Category | File → Variable | Current placeholder | Ideal photo |
+|----|-------|----------|-----------------|---------------------|-------------|
+| `1` | Victoria Sponge | cakes | `js/gallery-filter.js` → id `1` image | `loremflickr.com/.../cake,vanilla?lock=1` | Victoria sponge cake photo |
+| `2` | Chocolate Fudge | cakes | `js/gallery-filter.js` → id `2` image | `loremflickr.com/.../chocolate,cake?lock=2` | Chocolate fudge cake |
+| `3` | White Rose Wedding | wedding | `js/gallery-filter.js` → id `3` image | `loremflickr.com/.../wedding,cake?lock=3` | White rose wedding cake |
+| `4` | Chin Chin Box | snacks | `js/gallery-filter.js` → id `4` image | `loremflickr.com/.../snack,pastry?lock=4` | Chin chin gift box |
+| `5` | Red Velvet Layer | cakes | `js/gallery-filter.js` → id `5` image | `loremflickr.com/.../cake,red?lock=5` | Red velvet cake |
+| `6` | Unicorn Cake | custom | `js/gallery-filter.js` → id `6` image | `loremflickr.com/.../birthday,cake?lock=6` | Custom unicorn birthday cake |
+| `7` | Gold Leaf 3-Tier | wedding | `js/gallery-filter.js` → id `7` image | `loremflickr.com/.../wedding,cake?lock=7` | 3-tier gold leaf wedding cake |
+| `8` | Shortbread Tin | snacks | `js/gallery-filter.js` → id `8` image | `loremflickr.com/.../cookies,biscuit?lock=8` | Shortbread cookie tin |
+| `9` | Lemon Drizzle | cakes | `js/gallery-filter.js` → id `9` image | `loremflickr.com/.../lemon,cake?lock=9` | Lemon drizzle cake |
+| `10` | Football Theme | custom | `js/gallery-filter.js` → id `10` image | `loremflickr.com/.../birthday,cake?lock=10` | Football themed custom cake |
+| `11` | Brownie Selection | snacks | `js/gallery-filter.js` → id `11` image | `loremflickr.com/.../brownie,chocolate?lock=11` | Brownie selection box |
+| `12` | Floral Tier Cake | wedding | `js/gallery-filter.js` → id `12` image | `loremflickr.com/.../wedding,cake?lock=12` | Floral decorated wedding cake |
+| `13` | Number 30 Cake | custom | `js/gallery-filter.js` → id `13` image | `loremflickr.com/.../birthday,cake?lock=13` | Custom number birthday cake |
+| `14` | Caramel Salted Butter | cakes | `js/gallery-filter.js` → id `14` image | `loremflickr.com/.../caramel,cake?lock=14` | Caramel cake |
+| `15` | Puff Puff Delight | snacks | `js/gallery-filter.js` → id `15` image | `loremflickr.com/.../donut,pastry?lock=15` | Puff puff |
+| `16` | Princess Tiara Cake | custom | `js/gallery-filter.js` → id `16` image | `loremflickr.com/.../birthday,cake?lock=16` | Princess birthday cake |
 
-### How to change a gallery image:
+**How to change a gallery image:**
 ```js
 // js/gallery-filter.js — find the item by id and update image:
-{
-  id: 1,
-  category: "cakes",
-  title:    "Victoria Sponge",
-  image:    "assets/images/gallery/victoria-sponge.webp",  // ← Change this
-  alt:      "Victoria Sponge cake",                         // ← Keep this
-},
+{ id: 1, category: "cakes", title: "Victoria Sponge",
+  image: "assets/images/gallery/cake-01.webp",  // ← Change this
+  alt:   "Victoria Sponge cake" },               // ← Keep this
 ```
 
-### To add more gallery items:
+**To add a new gallery item:**
 ```js
-// Append to the GALLERY_ITEMS array:
-{
-  id:       17,         // Next sequential number
-  category: "cakes",    // "cakes" | "snacks" | "wedding" | "custom"
-  title:    "New Cake",
-  image:    "assets/images/gallery/new-cake.webp",
-  alt:      "Description of the photo",
-},
+// Append inside GALLERY_ITEMS array:
+{ id: 17, category: "cakes", title: "My New Cake",
+  image: "assets/images/gallery/cake-17.webp",
+  alt:   "Description of the photo" },
 ```
 
-### To remove a gallery item:
-Delete the entire `{ id: X, ... },` block from `GALLERY_ITEMS`.
+**To remove a gallery item:** Delete the entire `{ id: X, ... },` line.
 
 ---
 
-## GROUP 3 — Homepage Hero + Sections
+### GROUP 3 — Homepage Images
 **File:** `index.html`
-**Recommended size:** as specified per image
+**Find with:** Cmd+F (Mac) / Ctrl+F (Windows) → search the "seed" name below
 
-| Section | Current placeholder | Ideal size | Description |
-|---------|---------------------|-----------|-------------|
-| Hero background | `seed/hero-bakery/1600/900` | 1600×900 | Stunning hero shot — bakery interior, beautiful cake display, or baker at work |
-| Gallery preview 1 | `seed/preview-1/600/600` | 600×600 | Any showcase photo |
-| Gallery preview 2 | `seed/preview-2/600/600` | 600×600 | Any showcase photo |
-| Gallery preview 3 | `seed/preview-3/600/600` | 600×600 | Any showcase photo |
-| Gallery preview 4 | `seed/preview-4/600/600` | 600×600 | Any showcase photo |
-| Gallery preview 5 | `seed/preview-5/600/600` | 600×600 | Any showcase photo |
-| Gallery preview 6 | `seed/preview-6/600/600` | 600×600 | Any showcase photo |
-| CTA section background | `seed/cta-bg/1600/600` | 1600×600 | Overhead flat-lay of baked goods |
-| Category: Cakes | `seed/cat-cakes/600/400` | 600×400 | Selection of celebration cakes |
-| Category: Snacks | `seed/cat-snacks/600/400` | 600×400 | Snack assortment, gift boxes |
-| Category: Wedding | `seed/cat-wedding/600/400` | 600×400 | Elegant wedding cake |
+| Section | Search for | Ideal size | Description |
+|---------|-----------|-----------|-------------|
+| Hero background | `seed/hero-bakery` | 1600×900 | Stunning hero — bakery interior, beautiful cake display, or baker at work |
+| Gallery preview 1 | `seed/preview-1` | 600×600 | Showcase photo |
+| Gallery preview 2 | `seed/preview-2` | 600×600 | Showcase photo |
+| Gallery preview 3 | `seed/preview-3` | 600×600 | Showcase photo |
+| Gallery preview 4 | `seed/preview-4` | 600×600 | Showcase photo |
+| Gallery preview 5 | `seed/preview-5` | 600×600 | Showcase photo |
+| Gallery preview 6 | `seed/preview-6` | 600×600 | Showcase photo |
+| CTA section bg | `seed/cta-bg` | 1600×600 | Overhead flat-lay of baked goods |
+| Category: Cakes | `seed/cat-cakes` | 600×400 | Selection of celebration cakes |
+| Category: Snacks | `seed/cat-snacks` | 600×400 | Snack assortment, gift boxes |
+| Category: Wedding | `seed/cat-wedding` | 600×400 | Elegant wedding cake |
 
-### How to find in index.html:
-Search (`Cmd+F`) for `picsum.photos/seed/hero-bakery` — the `src="..."` is what you replace.
+**How to replace in index.html:**
+```html
+<!-- Find this: -->
+<img src="https://picsum.photos/seed/hero-bakery/1600/900" ...>
+
+<!-- Replace src with: -->
+<img src="assets/images/hero/homepage-hero.webp" ...>
+```
 
 ---
 
-## GROUP 4 — About Page Images
+### GROUP 4 — About Page Images
 **File:** `about.html`
 
-| Section | Current placeholder | Ideal size | Description |
-|---------|---------------------|-----------|-------------|
-| Page header bg | `seed/about-hero/1400/600` | 1400×600 | Bakery exterior, team photo, or kitchen shot |
-| Story photo | `seed/baker-story/800/600` | 800×600 | Founder/baker decorating a cake in the kitchen |
-| Team — Person 1 | `seed/team-ada/600/500` | 600×500 | Professional headshot or action shot |
-| Team — Person 2 | `seed/team-chukwu/600/500` | 600×500 | Professional headshot or action shot |
-| Team — Person 3 | `seed/team-fatima/600/500` | 600×500 | Professional headshot or action shot |
+| Section | Search for | Ideal size | Description | Where to place file |
+|---------|-----------|-----------|-------------|---------------------|
+| Page header bg | `seed/about-hero` | 1400×600 | Bakery exterior, kitchen shot | `assets/images/hero/about-hero.webp` |
+| Founder/story photo | `seed/baker-story` | 800×600 | Founder decorating a cake | `assets/images/team/founder.webp` |
+| Team person 1 (Adaeze) | `seed/team-ada` | 600×500 | Professional headshot | `assets/images/team/team-01.webp` |
+| Team person 2 | `seed/team-chukwu` | 600×500 | Professional headshot | `assets/images/team/team-02.webp` |
+| Team person 3 | `seed/team-fatima` | 600×500 | Professional headshot | `assets/images/team/team-03.webp` |
 
 ---
 
-## GROUP 5 — Custom Cakes Page Images
+### GROUP 5 — Custom Cakes Page Images
 **File:** `custom-cakes.html`
 
-| Section | Current placeholder | Ideal size | Description |
-|---------|---------------------|-----------|-------------|
-| Hero background | `seed/custom-hero/1600/800` | 1600×800 | Stunning wedding/custom cake hero |
-| Portfolio 1 | `seed/custom-1/600/600` | 600×600 | Custom cake example |
-| Portfolio 2 | `seed/custom-2/600/600` | 600×600 | Custom cake example |
-| Portfolio 3 | `seed/custom-3/600/900` | 600×900 | Tall custom cake (portrait) |
-| Portfolio 4 | `seed/custom-4/600/600` | 600×600 | Custom cake example |
-| Portfolio 5 | `seed/custom-5/600/600` | 600×600 | Custom cake example |
-| Portfolio 6 | `seed/custom-6/600/600` | 600×600 | Custom cake example |
-| Portfolio 7 | `seed/custom-7/600/600` | 600×600 | Custom cake example |
-| Wedding feature | `seed/wedding-feature/800/700` | 800×700 | Grand wedding cake, feature photo |
+| Section | Search for | Ideal size | Description | Where to place file |
+|---------|-----------|-----------|-------------|---------------------|
+| Hero background | `seed/custom-hero` | 1600×800 | Stunning wedding/custom cake | `assets/images/hero/custom-cakes-hero.webp` |
+| Portfolio 1 | `seed/custom-1` | 600×600 | Custom cake example | `assets/images/custom/custom-01.webp` |
+| Portfolio 2 | `seed/custom-2` | 600×600 | Custom cake example | `assets/images/custom/custom-02.webp` |
+| Portfolio 3 | `seed/custom-3` | 600×900 | Tall custom cake (portrait) | `assets/images/custom/custom-03.webp` |
+| Portfolio 4 | `seed/custom-4` | 600×600 | Custom cake example | `assets/images/custom/custom-04.webp` |
+| Portfolio 5 | `seed/custom-5` | 600×600 | Custom cake example | `assets/images/custom/custom-05.webp` |
+| Portfolio 6 | `seed/custom-6` | 600×600 | Custom cake example | `assets/images/custom/custom-06.webp` |
+| Portfolio 7 | `seed/custom-7` | 600×600 | Custom cake example | `assets/images/custom/custom-07.webp` |
+| Wedding feature | `seed/wedding-feature` | 800×700 | Grand wedding cake | `assets/images/custom/wedding-feature.webp` |
 
 ---
 
-## GROUP 6 — Testimonial Avatars
-**File:** `data/testimonials.js`
+### GROUP 6 — Testimonial Avatars
+**File:** `data/testimonials.js` → `avatar:` field for each person
 **Recommended size:** 80 × 80 px (square) | < 20 KB | WebP or JPG
 
-| Person | Current placeholder | Notes |
-|--------|---------------------|-------|
-| Adaeze | `seed/ada-avatar/80/80` | Headshot or generated avatar |
-| Emeka/Chisom | `seed/emeka-avatar/80/80` | Couple headshot or silhouette |
-| Blessing | `seed/blessing-avatar/80/80` | Headshot |
-| Tunde | `seed/tunde-avatar/80/80` | Headshot |
-| Nkechi | `seed/nkechi-avatar/80/80` | Headshot |
-| Fatimah | `seed/fatimah-avatar/80/80` | Headshot |
+| Person | Search for | Where to place file |
+|--------|-----------|---------------------|
+| Adaeze | `seed/ada-avatar` | `assets/images/avatars/customer-01.webp` |
+| Emeka/Chisom | `seed/emeka-avatar` | `assets/images/avatars/customer-02.webp` |
+| Blessing | `seed/blessing-avatar` | `assets/images/avatars/customer-03.webp` |
+| Tunde | `seed/tunde-avatar` | `assets/images/avatars/customer-04.webp` |
+| Nkechi | `seed/nkechi-avatar` | `assets/images/avatars/customer-05.webp` |
+| Fatimah | `seed/fatimah-avatar` | `assets/images/avatars/customer-06.webp` |
 
-> **Privacy note:** Only use real photos with the customer's permission. Alternatively, use illustrated/generated avatars from [ui-avatars.com](https://ui-avatars.com) or [dicebear.com](https://dicebear.com).
-
----
-
-## GROUP 7 — Fallback Images (Internal — Low Priority)
-
-These only display if a primary image fails to load. Replace after everything else is done.
-
-| Reference | Current URL | Where used |
-|-----------|-------------|-----------|
-| Product fallback | `seed/fallback/800/600` | Product cards in index.html |
-| Product fallback 2 | `seed/product-fallback/800/600` | products.html grid |
-| Gallery fallback | `seed/fallback-gallery/600/600` | Gallery grid |
-| Story fallback | `seed/fallback-story/800/600` | about.html |
-| Avatar fallback | `seed/avatar-fallback/80/80` | Testimonial avatars |
+> Don't have real customer photos? Use [ui-avatars.com](https://ui-avatars.com) (initials) or [dicebear.com](https://dicebear.com) (illustrated avatars). No copyright issues.
 
 ---
 
-## Recommended Free Photo Sources
+### GROUP 7 — Brand Assets (Create These)
+**Not yet in the project — you need to create them**
 
-| Source | Best for | Notes |
-|--------|----------|-------|
-| [Unsplash](https://unsplash.com) | Hero backgrounds, lifestyle | Free commercial use |
-| [Pexels](https://pexels.com) | Food photography | Free commercial use |
-| Your own phone | Product photos | Best quality for authenticity |
-| [Squoosh](https://squoosh.app) | Compressing images | Convert to WebP, resize |
-| [Canva](https://canva.com) | Team/brand photos | Great templates |
-
-### Recommended Unsplash search terms for food/bakery:
-- `chocolate cake` / `birthday cake` / `wedding cake`
-- `bakery pastry` / `baked goods` / `artisan bread`
-- `dessert box` / `cookies tin` / `brownies`
-- `chin chin` / `Nigerian snacks` (limited — use your own)
+| Asset | Where to save | Size | Notes |
+|-------|--------------|------|-------|
+| Logo | `assets/images/logo.svg` | Any | SVG preferred for crisp scaling |
+| Logo (dark mode) | `assets/images/logo-dark.svg` | Any | Only if logo color changes on dark bg |
+| OG / Social share | `assets/images/og-image.jpg` | 1200×630 | Shown when you share the site on WhatsApp/social |
+| Favicon | `assets/icons/favicon.svg` | 32×32 | Browser tab icon |
+| Apple touch icon | `assets/icons/apple-touch-icon.png` | 180×180 | iPhone home screen icon |
 
 ---
 
-## Local Image File Structure (Recommended)
+### GROUP 8 — Fallback Images (Low Priority)
+Only show if a primary image fails to load. Replace after everything else.
+
+| Reference | Search for | File |
+|-----------|-----------|------|
+| Product fallback | `seed/fallback/800/600` | `index.html` |
+| Product fallback 2 | `seed/product-fallback/800/600` | `products.html` |
+| Gallery fallback | `seed/fallback-gallery/600/600` | `js/gallery-filter.js` |
+| Story fallback | `seed/fallback-story/800/600` | `about.html` |
+| Avatar fallback | `seed/avatar-fallback/80/80` | `data/testimonials.js` |
+
+---
+
+## Recommended File Folder Structure
+
+Save all your custom images into this structure inside `assets/images/`:
 
 ```
 assets/
 └── images/
-    ├── logo.svg               ← Brand logo
-    ├── logo-dark.svg          ← Dark mode logo (optional)
-    ├── og-image.jpg           ← Social share image (1200×630)
-    ├── favicon.svg            ← Browser tab icon
-    ├── apple-touch-icon.png   ← iOS home screen icon (180×180)
+    ├── logo.svg                    ← Brand logo
+    ├── logo-dark.svg               ← Dark mode logo (optional)
+    ├── og-image.jpg                ← Social share image (1200×630)
+    │
+    ├── icons/
+    │   ├── favicon.svg             ← Browser tab icon
+    │   └── apple-touch-icon.png    ← iOS icon (180×180)
     │
     ├── hero/
-    │   ├── homepage-hero.webp
-    │   ├── about-hero.webp
-    │   └── custom-cakes-hero.webp
+    │   ├── homepage-hero.webp      ← index.html hero background
+    │   ├── about-hero.webp         ← about.html page header
+    │   └── custom-cakes-hero.webp  ← custom-cakes.html header
     │
     ├── products/
-    │   ├── victoria-sponge.webp
-    │   ├── chocolate-fudge.webp
-    │   ├── red-velvet.webp
-    │   └── ... (one per product)
+    │   ├── victoria-sponge.webp    ← c001
+    │   ├── chocolate-fudge.webp    ← c002
+    │   ├── red-velvet.webp         ← c003
+    │   ├── lemon-drizzle.webp      ← c004
+    │   ├── strawberry-gateau.webp  ← c005
+    │   ├── caramel-cake.webp       ← c006
+    │   ├── chin-chin.webp          ← s001
+    │   ├── shortbread-tin.webp     ← s002
+    │   ├── brownies.webp           ← s003
+    │   ├── puff-puff.webp          ← s004
+    │   ├── meat-pies.webp          ← s005
+    │   ├── dessert-box.webp        ← s006
+    │   ├── wedding-cake-2tier.webp ← w001
+    │   └── wedding-cake-3tier.webp ← w002
     │
     ├── gallery/
-    │   ├── cake-01.webp
-    │   ├── cake-02.webp
-    │   └── ... (one per gallery item)
+    │   ├── cake-01.webp            ← gallery id 1
+    │   ├── cake-02.webp            ← gallery id 2
+    │   └── ... (id 1 – 16)
+    │
+    ├── custom/
+    │   ├── custom-01.webp          ← custom-cakes portfolio 1
+    │   ├── custom-02.webp
+    │   └── ... (up to custom-07 + wedding-feature)
     │
     ├── team/
-    │   ├── founder.webp
-    │   └── ...
+    │   ├── founder.webp            ← about.html story photo
+    │   ├── team-01.webp            ← team member 1
+    │   ├── team-02.webp            ← team member 2
+    │   └── team-03.webp            ← team member 3
     │
     └── avatars/
-        ├── customer-01.webp
-        └── ...
+        ├── customer-01.webp        ← testimonial 1
+        ├── customer-02.webp
+        └── ... (up to customer-06)
 ```
+
+---
+
+## Free Photo Sources (Cake & Food Specific)
+
+| Source | Best for | License |
+|--------|----------|---------|
+| [Unsplash](https://unsplash.com/s/photos/cake) | Hero backgrounds, lifestyle shots | Free commercial |
+| [Pexels](https://pexels.com/search/cake/) | Food photography, clean product shots | Free commercial |
+| [Foodish API](https://foodish-api.com) | Random food photos | Free |
+| Your own phone | Product shots — most authentic | Yours |
+| [Squoosh](https://squoosh.app) | Compress + convert to WebP | Free tool |
+
+**Best Unsplash search terms:**
+- `chocolate cake` / `birthday cake` / `wedding cake`
+- `bakery pastry` / `baked goods` / `artisan bread`
+- `dessert box` / `cookies tin` / `fudgy brownies`
+- `chin chin` / `puff puff` / `Nigerian snacks` (limited — use your own)
