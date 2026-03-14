@@ -5,19 +5,19 @@
 
 const SITE_CONFIG = {
   // ── Business Info ─────────────────────────────────────────────────────────
-  businessName:    "Sweet Crumbs Bakery",     // EDIT: bakery name (appears in navbar, footer, title)
+  businessName:    "Nafeesah Baking & Snacks",     // EDIT: bakery name (appears in navbar, footer, title)
   tagline:         "Handcrafted with love, baked to perfection",
   description:     "Premium cakes and artisan snacks for every occasion — birthdays, weddings, corporate events, and everyday indulgence.",
   currency:        "₦",                        // EDIT: change to "$", "£", "€" etc.
   currencyLocale:  "en-NG",                   // EDIT: e.g., "en-US", "en-GB"
 
   // ── Contact & Social ──────────────────────────────────────────────────────
-  whatsappNumber:  "2348012345678",           // EDIT: international format, no + or spaces
+  whatsappNumber:  "2349035426448",           // EDIT: international format, no + or spaces
   whatsappMessage: "Hello! I'd like to place an order with Sweet Crumbs Bakery 🎂", // EDIT
-  phone:           "+234 801 234 5678",       // EDIT: display format
-  email:           "hello@sweetcrumbs.ng",    // EDIT
-  address:         "14 Bakery Lane, Victoria Island, Lagos, Nigeria", // EDIT
-  mapUrl:          "https://maps.google.com", // EDIT: your Google Maps link
+  phone:           "+234 903 542 6448",       // EDIT: display format
+  email:           "Nafisattadenikawo@gmail.com",    // EDIT
+  address:         "Fajuyi Road Ile-Ife Ng", // EDIT
+  mapUrl:          "https://maps.app.goo.gl/t5camdLfGbJmZ8cd6", // EDIT: your Google Maps link
   hours: {
     weekdays: "Monday – Friday: 8:00 AM – 7:00 PM",
     saturday: "Saturday: 8:00 AM – 8:00 PM",
@@ -26,9 +26,9 @@ const SITE_CONFIG = {
 
   // ── Social Media Links ────────────────────────────────────────────────────
   social: {
-    instagram: "https://instagram.com/sweetcrumbsbakery",  // EDIT
-    facebook:  "https://facebook.com/sweetcrumbsbakery",   // EDIT
-    twitter:   "https://twitter.com/sweetcrumbs",          // EDIT
+    instagram: "https://instagram.com/olatunji Tadenikawo precious",  // EDIT
+    facebook:  "https://facebook.com/olatunji tadenikawo precious",   // EDIT
+    x:   "",          // EDIT
     tiktok:    "",                                          // EDIT (leave empty to hide)
   },
 
